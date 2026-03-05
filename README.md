@@ -12,7 +12,6 @@ University of California, Berkeley
 The notebooks provide computational examples and reproducible implementations of key concepts discussed in the book.
 
 Repository maintained by:
-
 **Dr. Fan Hu**  
 Structural Artificial Intelligence Research Laboratory (STAIRlab)  
 University of California, Berkeley
