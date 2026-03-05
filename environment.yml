@@ -1,0 +1,12 @@
+name: bayesian_robotics
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - jupyter
+  - scikit-learn
