@@ -2,7 +2,7 @@
 
 Computational examples for **Bayesian Methods for Autonomous Robotics and Intelligent Infrastructure Systems: Probabilistic Perception, Estimation, and Digital Twins**, by **Khalid M. Mosalam**, Taisei Professor of Civil Engineering, University of California, Berkeley.
 
-Repository maintained by **Dr. Fan Hu**, Structural Artificial Intelligence Research Laboratory (STAIRlab), University of California, Berkeley.
+Repository created and maintained by **Dr. Fan Hu**, Structural Artificial Intelligence Research Laboratory (STAIRlab), University of California, Berkeley.
 
 ## Notebooks
 
