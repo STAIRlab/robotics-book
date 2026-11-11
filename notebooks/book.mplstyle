@@ -1,0 +1,47 @@
+# Berkeley editorial: shared visual settings for the companion figures.
+# Keep method colors explicit in comparison plots: EKF teal, UKF gold, PF blue.
+font.family: serif
+font.serif: STIXGeneral, DejaVu Serif
+mathtext.fontset: stix
+font.size: 10
+axes.titlesize: 11
+axes.titleweight: normal
+axes.labelsize: 10
+axes.labelcolor: 30363B
+axes.edgecolor: 78828B
+axes.linewidth: 0.6
+axes.spines.top: False
+axes.spines.right: False
+axes.axisbelow: True
+axes.facecolor: white
+axes.prop_cycle: cycler('color', ['003262', 'B17A00', '247C86', '945844', '69737C'])
+axes.grid: False
+grid.color: DFE4E9
+grid.linewidth: 0.5
+grid.alpha: 1.0
+lines.linewidth: 1.4
+lines.markersize: 4
+lines.solid_capstyle: round
+patch.linewidth: 0.7
+text.color: 30363B
+xtick.color: 30363B
+ytick.color: 30363B
+xtick.labelsize: 9
+ytick.labelsize: 9
+xtick.major.width: 0.6
+ytick.major.width: 0.6
+xtick.major.size: 3
+ytick.major.size: 3
+legend.frameon: False
+legend.fontsize: 9
+legend.handlelength: 2.0
+figure.figsize: 6.5, 4.2
+figure.dpi: 130
+figure.facecolor: white
+savefig.facecolor: white
+savefig.dpi: 200
+savefig.bbox: tight
+savefig.pad_inches: 0.06
+pdf.fonttype: 42
+ps.fonttype: 42
+svg.fonttype: none

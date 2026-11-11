@@ -1,0 +1,66 @@
+% Original book diagram: fig:viterbi_trellis
+% Book source: sections/Part_III/hmm.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+    >=Latex,
+    node distance=1.5cm and 2cm,
+    auto,
+    state/.style={circle, draw=BookBlue, fill=white, minimum size=8mm, inner sep=1pt},
+    faintedge/.style={->, line width=0.5pt, draw=BookInk!25},
+    winedge/.style={->, line width=1.4pt, draw=BookBlue},
+    winnode/.style={circle, fill=BookLight, draw=BookBlue, line width=1.2pt, minimum size=8mm, inner sep=1pt}
+]
+
+  % --- Nodes (3 states over 3 time steps) ---
+  % Column 1
+  \node[winnode] (s10) {$s_1$};
+  \node[state]   (s20) [below=of s10] {$s_2$};
+  \node[state]   (s30) [below=of s20] {$s_3$};
+
+  % Column 2
+  \node[winnode] (s11) [right=of s10] {$s_1$};
+  \node[state]   (s21) [below=of s11] {$s_2$};
+  \node[state]   (s31) [below=of s21] {$s_3$};
+
+  % Column 3
+  \node[winnode] (s12) [right=of s11] {$s_1$};
+  \node[state]   (s22) [below=of s12] {$s_2$};
+  \node[state]   (s32) [below=of s22] {$s_3$};
+
+  % --- All edges (light gray) ---
+  \foreach \i in {1,2,3} {
+    \foreach \j in {1,2,3} {
+      \draw[faintedge] (s\i0) -- (s\j1);
+      \draw[faintedge] (s\i1) -- (s\j2);
+    }
+  }
+
+  % --- Highlighted MAP path (example: S1 -> S1 -> S1) ---
+  \draw[winedge] (s10) -- (s11);
+  \draw[winedge] (s11) -- (s12);
+
+  % --- Time labels ---
+  \node at ([yshift=.55cm]s10.north) {$t=1$};
+  \node at ([yshift=.55cm]s11.north) {$t=2$};
+  \node at ([yshift=.55cm]s12.north) {$t=3$};
+
+  % --- Annotation for highlighted path ---
+  \node[font=\scriptsize, text=BookBlue] at ($(s11)+(0,1.35)$) {MAP path};
+
+\end{tikzpicture}
+\end{document}

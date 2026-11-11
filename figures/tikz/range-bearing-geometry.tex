@@ -1,0 +1,55 @@
+% Original book diagram: fig:range_bearing_geometry
+% Book source: sections/Part_II/sensor_models.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[book figure, scale=1.05,>=Latex]
+    \coordinate (L) at (0,0);
+    \coordinate (X) at (4,2);
+
+    % Compute bearing angle (degrees) from L to X
+    \pgfmathanglebetweenpoints{\pgfpointanchor{L}{center}}{\pgfpointanchor{X}{center}}
+    \let\bearingAngle\pgfmathresult
+
+    % Point along the bearing ray: extend segment L->X by 25%
+    \coordinate (R) at ($(L)!1.25!(X)$);
+
+    % Axes
+    \draw[book axis] (-0.5,0) -- (6,0) node[right] {$x$};
+    \draw[book axis] (0,-0.5) -- (0,3.5) node[above] {$y$};
+
+    % Landmark and robot
+    \fill[BookGold] (L) circle (2pt) node[below left] {Landmark $\ell=(\ell_x,\ell_y)$};
+    \fill[BookBlue] (X) circle (2pt) node[below right=-2pt and 2pt,text width=4.2cm,align=left] {Robot $\mathbf{x}=(x,y)=(4,2)$ [Example]};
+
+    % Range line
+    \draw[BookBlue,line width=1.1pt] (L) -- (X);
+    \node at (2.1,1.2) {$r$};
+
+    % Bearing ray
+    \draw[BookBlue,line width=1.1pt,->] (L) -- (R);
+
+    % Angle arc using computed end angle
+    \draw[BookGold,line width=0.8pt] ($(L)+(0.9,0)$) arc[start angle=0,end angle=\bearingAngle,radius=0.9];
+    \node at ($(L)+(2.6,0.3)$) {$\theta = \pgfmathprintnumber[precision=2]{\bearingAngle}^\circ$ [Example]};
+
+    % Optional dashed circle (illustrative)
+    \draw[BookTeal,dashed,line width=0.8pt] (L) circle (4.47);
+
+    \node[text=BookTeal] at (-1.7,2.9) {\small Range locus: circle};
+    \node[text=BookBlue] at (5.2,3.2) {\small Bearing locus: ray ($\theta$)};
+  \end{tikzpicture}
+\end{document}

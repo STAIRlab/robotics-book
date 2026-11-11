@@ -1,0 +1,64 @@
+% Original book diagram: fig:range_bearing_two_cases
+% Book source: sections/Part_II/sensor_models.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[book figure, scale=1.05,>=Latex]
+
+\coordinate (L)  at (0,0);
+\coordinate (X1) at (4,2);
+\coordinate (X2) at (2.5,3);
+
+% Radii in cm (robust)
+\pgfmathsetmacro{\rOne}{veclen(4,2)}
+\pgfmathsetmacro{\rTwo}{veclen(2.5,3)}
+
+% Bearings
+\pgfmathanglebetweenpoints{\pgfpointanchor{L}{center}}{\pgfpointanchor{X1}{center}}
+\let\bearingOne\pgfmathresult
+\pgfmathanglebetweenpoints{\pgfpointanchor{L}{center}}{\pgfpointanchor{X2}{center}}
+\let\bearingTwo\pgfmathresult
+
+% Axes
+\draw[book axis] (-0.5,0) -- (5.5,0) node[right] {$x$};
+\draw[book axis] (0,-0.5) -- (0,5.2) node[above] {$y$};
+
+% Landmark + robots
+\fill[BookGold] (L) circle (2pt) node[below left] {Landmark};
+\fill[BookBlue] (X1) circle (2pt) node[right, xshift=3pt, yshift=-1pt] {$\mathbf{x}_1$};
+\fill[BookTeal] (X2) circle (2pt) node[above, xshift=-1pt, yshift=3pt] {$\mathbf{x}_2$};
+
+% Range circles
+\draw[BookBlue,dashed] (L) circle (\rOne cm);
+\draw[BookTeal,dash pattern=on 4pt off 2pt on 1pt off 2pt] (L) circle (\rTwo cm);
+
+% Range lines
+\draw[BookBlue,line width=1.1pt] (L)--(X1);
+\draw[BookTeal,line width=1.1pt] (L)--(X2);
+
+% Bearing rays
+\draw[BookBlue,line width=1.1pt,->] (L)--($(L)!1.25!(X1)$);
+\draw[BookTeal,line width=1.1pt,->] (L)--($(L)!1.25!(X2)$);
+
+% Angle arcs
+\draw[BookBlue] ($(L)+(1.2,0)$) arc (0:\bearingOne:1.2);
+\draw[BookTeal] ($(L)+(1.7,0)$) arc (0:\bearingTwo:1.7);
+
+\node at ($(L)+(0.9,0.22)$) {$\theta_1$};
+\node at ($(L)+(1.1,0.9)$) {$\theta_2$};
+
+\end{tikzpicture}
+\end{document}

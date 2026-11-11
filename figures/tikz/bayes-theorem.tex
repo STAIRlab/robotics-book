@@ -1,0 +1,33 @@
+% Original book diagram: fig:bayes_thm
+% Book source: sections/Part_I/bayes_theorem.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex, every node/.style={font=\small},
+box/.style={draw=BookBlue, fill=white, rectangle, rounded corners=2pt, align=center, minimum width=2.6cm, minimum height=1cm}]
+\node[box,draw=BookGold] (prior) at (0,1.1) {Prior\\$\Prob(H)$};
+\node[box,draw=BookTeal] (lik) at (0,-1.1) {Likelihood\\$\Prob(D\mid H)$};
+\node[draw=BookBlue, fill=white, circle, inner sep=3pt] (prod) at (2.7,0) {$\times$};
+\node[draw=BookBlue, fill=white, circle, inner sep=3pt] (div) at (5.6,0) {$\div$};
+\node[box,fill=BookLight] (post) at (8.3,0) {Posterior\\$\Prob(H\mid D)$};
+\node[box] (ev) at (5.6,-1.9) {Evidence\\$\Prob(D)=\sum_{H'}\Prob(D\mid H')\,\Prob(H')$};
+\draw[->, draw=BookGold, line width=0.8pt] (prior) -- (prod);
+\draw[->, draw=BookTeal, line width=0.8pt] (lik) -- (prod);
+\draw[->, line width=0.8pt] (prod) -- node[above=1pt]{\small unnormalized} (div);
+\draw[->, line width=0.8pt] (ev) -- (div);
+\draw[->, line width=0.8pt] (div) -- (post);
+\end{tikzpicture}
+\end{document}

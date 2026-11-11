@@ -1,0 +1,89 @@
+% Original book diagram: fig:temporal_inference_tasks
+% Book source: sections/Part_IV/hidden_Markov_state_space.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex, node distance=1.7cm and 1.6cm,
+state/.style={circle, draw=BookBlue, fill=white, minimum size=8mm},
+obs/.style={rectangle, draw=BookGold, rounded corners=2pt, fill=BookLight, minimum size=6mm},
+arrow/.style={->, draw=BookBlue, line width=0.8pt},
+font=\small]
+
+% ------------------------------------------------
+% Filtering
+% ------------------------------------------------
+
+\node at (1.6,2.2) {\textbf{Filtering}};
+
+\node[state] (x1) at (0,1) {$x_1$};
+\node[state] (x2) at (1.6,1) {$x_2$};
+\node[state,draw=BookGold, line width=1.2pt] (x3) at (3.2,1) {$x_3$};
+
+\node[obs] (y1) at (0,-0.3) {$z_1$};
+\node[obs] (y2) at (1.6,-0.3) {$z_2$};
+\node[obs] (y3) at (3.2,-0.3) {$z_3$};
+
+\draw[arrow] (x1)--(x2);
+\draw[arrow] (x2)--(x3);
+
+\draw[arrow,draw=BookGold] (x1)--(y1);
+\draw[arrow,draw=BookGold] (x2)--(y2);
+\draw[arrow,draw=BookGold] (x3)--(y3);
+
+% ------------------------------------------------
+% Prediction
+% ------------------------------------------------
+
+\node at (7.4,2.2) {\textbf{Prediction}};
+
+\node[state] (px1) at (5,1) {$x_1$};
+\node[state] (px2) at (6.6,1) {$x_2$};
+\node[state] (px3) at (8.2,1) {$x_3$};
+\node[state,draw=BookGold,line width=1.2pt] (px4) at (9.8,1) {$x_4$};
+
+\node[obs] (py1) at (5,-0.3) {$z_1$};
+\node[obs] (py2) at (6.6,-0.3) {$z_2$};
+
+\draw[arrow] (px1)--(px2);
+\draw[arrow] (px2)--(px3);
+\draw[arrow] (px3)--(px4);
+
+\draw[arrow,draw=BookGold] (px1)--(py1);
+\draw[arrow,draw=BookGold] (px2)--(py2);
+
+% ------------------------------------------------
+% Smoothing
+% ------------------------------------------------
+
+\node at (13.1,2.2) {\textbf{Smoothing}};
+
+\node[state] (sx1) at (11.5,1) {$x_1$};
+\node[state,draw=BookGold,line width=1.2pt] (sx2) at (13.1,1) {$x_2$};
+\node[state] (sx3) at (14.7,1) {$x_3$};
+
+\node[obs] (sy1) at (11.5,-0.3) {$z_1$};
+\node[obs] (sy2) at (13.1,-0.3) {$z_2$};
+\node[obs] (sy3) at (14.7,-0.3) {$z_3$};
+
+\draw[arrow] (sx1)--(sx2);
+\draw[arrow] (sx2)--(sx3);
+
+\draw[arrow,draw=BookGold] (sx1)--(sy1);
+\draw[arrow,draw=BookGold] (sx2)--(sy2);
+\draw[arrow,draw=BookGold] (sx3)--(sy3);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,40 @@
+% Original book diagram: fig:Hierarchical_Bayesian_model
+% Book source: sections/Part_IV/bayesian_learning.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+    >=Latex,
+    every node/.style={font=\small},
+    var/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        minimum size=9mm,
+        inner sep=1pt,
+        line width=0.8pt
+    },
+    arrow/.style={->, line width=0.8pt}
+]
+
+\node[var, draw=BookTeal] (phi) at (0,0) {$\phi$};
+\node[var] (theta) at (-1.2,-1.4) {$\theta$};
+\node[var, draw=BookGold, fill=BookLight] (y) at (1.2,-1.4) {$y$};
+
+\draw[arrow] (phi) -- (theta);
+\draw[arrow,draw=BookGold] (theta) -- (y);
+
+\end{tikzpicture}
+\end{document}

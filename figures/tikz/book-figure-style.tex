@@ -1,0 +1,16 @@
+% Shared visual vocabulary for the book's original diagrams.
+% Figures opt in explicitly, so unrelated text and existing additions are unchanged.
+\definecolor{BookBlue}{HTML}{003262}
+\definecolor{BookGold}{HTML}{B17A00}
+\definecolor{BookTeal}{HTML}{247C86}
+\definecolor{BookInk}{HTML}{30363B}
+\definecolor{BookLight}{HTML}{E9EFF5}
+\tikzset{
+  book figure/.style={font=\small\rmfamily, color=BookBlue, text=BookInk,
+    line width=0.8pt, >=Latex},
+  book axis/.style={->, draw=BookInk, line width=0.6pt},
+  book link/.style={->, draw=BookBlue, line width=0.8pt},
+  book observation/.style={draw=BookGold, fill=BookGold!8},
+  book state/.style={draw=BookBlue, fill=BookLight},
+  book note/.style={font=\footnotesize\rmfamily, text=BookInk}
+}

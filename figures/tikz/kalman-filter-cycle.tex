@@ -1,0 +1,53 @@
+% Original book diagram: fig:KF_flow_diag
+% Book source: sections/Part_II/kalman_filter.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+    node distance=5.4cm,
+    >=Latex,
+    every node/.style={font=\small},
+    block/.style={
+        draw=BookBlue, fill=white,
+        rectangle,
+        rounded corners=3pt,
+        minimum width=4.4cm,
+        minimum height=1.3cm,
+        align=center
+    },
+    arrow/.style={->, line width=0.8pt}
+]
+
+\node[block] (prior)
+{Posterior at $k-1$\\
+$\vect{\hat{x}}_{k-1},\, \mat{P}_{k-1}$};
+
+\node[block, draw=BookGold, fill=BookGold!5, right of=prior] (predict)
+{Prediction\\
+$\vect{\hat{x}}_k^{-},\, \mat{P}_k^{-}$};
+
+\node[block, fill=BookLight, right of=predict] (update)
+{Update\\
+$\vect{\hat{x}}_k,\, \mat{P}_k$};
+
+\draw[arrow] (prior) -- (predict);
+\draw[arrow] (predict) -- (update);
+
+\node[above=8mm of $(prior)!0.5!(predict)$] {Process model};
+\node[above=8mm of $(predict)!0.5!(update)$] {Measurement update};
+
+\end{tikzpicture}
+\end{document}

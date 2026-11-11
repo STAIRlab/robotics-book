@@ -1,0 +1,32 @@
+% Original book diagram: fig:graph_chain
+% Book source: sections/Part_IV/probablistic_graphics.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+        >=Latex,
+        var/.style={circle,draw=BookBlue,fill=white,minimum size=8mm,inner sep=0pt}
+    ]
+
+    \node[var] (x1) at (0,0) {$x_1$};
+    \node[var] (x2) at (2.0,0) {$x_2$};
+    \node[var] (x3) at (4.0,0) {$x_3$};
+
+    \draw[->,line width=0.8pt] (x1) -- (x2);
+    \draw[->,line width=0.8pt] (x2) -- (x3);
+
+    \end{tikzpicture}
+\end{document}

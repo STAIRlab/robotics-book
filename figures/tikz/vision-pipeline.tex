@@ -1,0 +1,60 @@
+% Original book diagram: fig:cv_pipeline
+% Book source: sections/Part_V/CV.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\begin{document}
+\begin{tikzpicture}[book figure,
+    node distance=1.35cm and 0.6cm,
+    >=Latex,
+    every node/.style={align=center, font=\small},
+    block/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw,
+        minimum width=2.15cm,
+        minimum height=0.9cm,
+        line width=0.8pt,
+        fill=BookLight
+    },
+    arrow/.style={->, draw=BookBlue, line width=0.8pt},
+    feedback/.style={->, draw=BookGold, dashed, line width=0.8pt}
+]
+
+\node[block] (sense) {Image/Sensor\\Acquisition};
+\node[block, right=of sense] (vision) {Computer Vision\\and Perception};
+\node[block, right=of vision] (slam) {Localization\\and SLAM};
+\node[block, right=of slam] (dt) {Digital Twin\\Updating};
+\node[block, right=of dt] (decision) {Planning \&\\Decision Support};
+
+\draw[arrow] (sense) -- (vision);
+\draw[arrow] (vision) -- (slam);
+\draw[arrow] (slam) -- (dt);
+\draw[arrow] (dt) -- (decision);
+
+% feedback loop: vertical down, horizontal left, vertical up
+\draw[dashed, draw=BookGold, line width=0.8pt]
+(decision.south) -- ([yshift=-8mm]decision.south);
+
+\draw[dashed, draw=BookGold, line width=0.8pt]
+([yshift=-8mm]decision.south) --
+node[midway, above, font=\footnotesize]{feedback}
+([yshift=-8mm]sense.south);
+
+\draw[feedback]
+([yshift=-8mm]sense.south) -- (sense.south);
+
+\end{tikzpicture}
+\end{document}
