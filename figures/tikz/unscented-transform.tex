@@ -15,21 +15,24 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex, scale=1.2,>=Latex]
+\begin{tikzpicture}[book figure, scale=1.2,>=Latex]
   % ---------- LEFT: prior in x-space ----------
   \begin{scope}
-    \draw[->] (-2,0) -- (2,0) node[right] {$x_1$};
-    \draw[->] (0,-2) -- (0,2) node[above] {$x_2$};
+    \draw[book axis] (-2,0) -- (2,0) node[right] {$x_1$};
+    \draw[book axis] (0,-2) -- (0,2) node[above] {$x_2$};
 
     \fill[BookLight] (0,0) circle (1.2);
-    \draw[BookBlue, line width=0.8pt] (0,0) circle (1.2);
+    \draw[BookBlue, book stroke] (0,0) circle (1.2);
 
     % mean
     \fill[BookInk] (0,0) circle (0.06);
     \node[below right] at (0,0) {\footnotesize $\vect{\hat{x}}$};
 
-    % sigma points
+    % Sigma points
     \foreach \x/\y in {1.2/0, -1.2/0, 0/1.2, 0/-1.2} {
       \filldraw[BookGold] (\x,\y) circle (0.06);
     }
@@ -40,22 +43,23 @@
   \end{scope}
 
   % ---------- MIDDLE: nonlinear map label ----------
-  \node (map) at (3.9,0) {\Large $\xrightarrow{\;\;h(\cdot)\;\;}$};
+  \coordinate (map) at (3.9,0);
+  \draw[book link] (3.0,0) -- node[above] {$h(\cdot)$} (4.8,0);
 
   % ---------- RIGHT: transformed points in z-space ----------
   \begin{scope}[xshift=7.8cm]
-    \draw[->] (-2,0) -- (2,0) node[right] {$z_1$};
-    \draw[->] (0,-2) -- (0,2) node[above] {$z_2$};
+    \draw[book axis] (-2,0) -- (2,0) node[right] {$z_1$};
+    \draw[book axis] (0,-2) -- (0,2) node[above] {$z_2$};
 
     % Show a "distorted" uncertainty region (simple illustrative blob)
     \fill[BookLight] (0,0) .. controls (1.8,1.4) and (2.2,-1.2) .. (0.6,-1.6)
                                   .. controls (-1.4,-2.0) and (-2.2,-0.2) .. (-1.6,1.2)
                                   .. controls (-1.0,2.0) and (0.6,2.0) .. cycle;
-    \draw[BookBlue, line width=0.8pt] (0,0) .. controls (1.8,1.4) and (2.2,-1.2) .. (0.6,-1.6)
+    \draw[BookBlue, book stroke] (0,0) .. controls (1.8,1.4) and (2.2,-1.2) .. (0.6,-1.6)
                                      .. controls (-1.4,-2.0) and (-2.2,-0.2) .. (-1.6,1.2)
                                      .. controls (-1.0,2.0) and (0.6,2.0) .. cycle;
 
-    % "transformed sigma points" (illustrative locations)
+    % "transformed Sigma points" (illustrative locations)
     \foreach \x/\y in {1.6/0.9, 2.0/-0.7, -1.5/1.0, -0.6/-1.4} {
       \filldraw[BookGold] (\x,\y) circle (0.06);
     }
@@ -72,8 +76,8 @@
 % Legend centered between plots
 \begin{scope}[shift={(map.center)}]
   \node[align=left] at (0,1.0) {
-    \tikz{\filldraw[BookGold] (0,0) circle (0.06);} \hspace{2mm} \footnotesize sigma points\\[2mm]
-    \tikz{\fill[BookInk] (0,0) circle (0.06);} \hspace{2mm} \footnotesize mean
+    \tikz{\filldraw[BookGold] (0,0) circle (0.06);} \hspace{2mm} \footnotesize Sigma points\\[2mm]
+    \tikz{\fill[BookInk] (0,0) circle (0.06);} \hspace{2mm} \footnotesize Mean
   };
 \end{scope}
 \end{tikzpicture}

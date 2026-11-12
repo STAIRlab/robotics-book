@@ -15,8 +15,11 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex, scale=1.0]
+\begin{tikzpicture}[book figure, scale=1.0]
 % Calibrated to the example: mean 1.2t, standard deviation 0.15t^2 (sigma_a = 0.3 m/s^2)
 % shaded band: mean +/- 2 standard deviations
 \fill[BookLight, domain=0:2.5, samples=60]
@@ -25,17 +28,17 @@ plot (\x, {1.2*\x + 0.3*\x*\x})
 -- cycle;
 
 % axes and ticks
-\draw[->] (0,0) -- (3.0,0) node[right] {Time $t$ (s)};
-\draw[->] (0,0) -- (0,5.2) node[above] {Position $x$ (m)};
+\draw[book axis] (0,0) -- (3.0,0) node[right] {Time $t$ (s)};
+\draw[book axis] (0,0) -- (0,5.2) node[above] {Position $x$ (m)};
 \foreach \t in {1,2} \draw (\t,0.06) -- (\t,-0.06) node[below] {\small $\t$};
 \foreach \y in {1,2,3,4} \draw (0.06,\y) -- (-0.06,\y) node[left] {\small $\y$};
 
 % mean trajectory
-\draw[BookBlue, line width=1.1pt, domain=0:2.5, samples=60]
+\draw[BookBlue, book curve, domain=0:2.5, samples=60]
 plot (\x, {1.2*\x});
 
 % one possible trajectory (constant acceleration a = +sigma_a)
-\draw[BookGold, dashed, line width=1.1pt, domain=0:2.5, samples=60]
+\draw[BookGold, dashed, book curve, domain=0:2.5, samples=60]
 plot (\x, {1.2*\x + 0.15*\x*\x});
 
 % prediction horizon
@@ -43,9 +46,9 @@ plot (\x, {1.2*\x + 0.15*\x*\x});
 
 % legend
 \begin{scope}[shift={(3.4,3.2)}]
-\draw[BookBlue, line width=1.1pt] (0,1.2) -- (0.5,1.2); \node[right] at (0.55,1.2) {\small mean prediction};
-\draw[BookGold, dashed, line width=1.1pt] (0,0.6) -- (0.5,0.6); \node[right] at (0.55,0.6) {\small trajectory with $a=\sigma_a$};
-\fill[BookLight] (0,-0.12) rectangle (0.5,0.12); \draw (0,-0.12) rectangle (0.5,0.12); \node[right] at (0.55,0) {\small mean $\pm 2$ std.\ dev.};
+\draw[BookBlue, book curve] (0,1.2) -- (0.5,1.2); \node[right] at (0.55,1.2) {\small Mean prediction};
+\draw[BookGold, dashed, book curve] (0,0.6) -- (0.5,0.6); \node[right] at (0.55,0.6) {\small Trajectory with $a=\sigma_a$};
+\fill[BookLight] (0,-0.12) rectangle (0.5,0.12); \draw (0,-0.12) rectangle (0.5,0.12); \node[right] at (0.55,0) {\small Mean $\pm 2$ std.\ dev.};
 \end{scope}
 \end{tikzpicture}
 \end{document}

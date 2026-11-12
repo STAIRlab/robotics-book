@@ -15,12 +15,15 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex, node distance=1.7cm and 1.6cm,
+\begin{tikzpicture}[book figure, node distance=1.7cm and 1.6cm,
 state/.style={circle, draw=BookBlue, fill=white, minimum size=8mm},
 obs/.style={rectangle, draw=BookGold, rounded corners=2pt, fill=BookLight, minimum size=6mm},
-arrow/.style={->, draw=BookBlue, line width=0.8pt},
-font=\small]
+arrow/.style={->, draw=BookBlue, book stroke},
+font=\BookFigureFont]
 
 % ------------------------------------------------
 % Filtering
@@ -30,7 +33,7 @@ font=\small]
 
 \node[state] (x1) at (0,1) {$x_1$};
 \node[state] (x2) at (1.6,1) {$x_2$};
-\node[state,draw=BookGold, line width=1.2pt] (x3) at (3.2,1) {$x_3$};
+\node[state,draw=BookGold, book emphasis] (x3) at (3.2,1) {$x_3$};
 
 \node[obs] (y1) at (0,-0.3) {$z_1$};
 \node[obs] (y2) at (1.6,-0.3) {$z_2$};
@@ -52,7 +55,7 @@ font=\small]
 \node[state] (px1) at (5,1) {$x_1$};
 \node[state] (px2) at (6.6,1) {$x_2$};
 \node[state] (px3) at (8.2,1) {$x_3$};
-\node[state,draw=BookGold,line width=1.2pt] (px4) at (9.8,1) {$x_4$};
+\node[state,draw=BookGold,book emphasis] (px4) at (9.8,1) {$x_4$};
 
 \node[obs] (py1) at (5,-0.3) {$z_1$};
 \node[obs] (py2) at (6.6,-0.3) {$z_2$};
@@ -71,7 +74,7 @@ font=\small]
 \node at (13.1,2.2) {\textbf{Smoothing}};
 
 \node[state] (sx1) at (11.5,1) {$x_1$};
-\node[state,draw=BookGold,line width=1.2pt] (sx2) at (13.1,1) {$x_2$};
+\node[state,draw=BookGold,book emphasis] (sx2) at (13.1,1) {$x_2$};
 \node[state] (sx3) at (14.7,1) {$x_3$};
 
 \node[obs] (sy1) at (11.5,-0.3) {$z_1$};

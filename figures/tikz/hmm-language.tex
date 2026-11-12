@@ -15,17 +15,20 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+\begin{tikzpicture}[book figure,
     >=Latex,
     node distance=2.8cm and 2cm,
-    every node/.style={font=\small},
+    every node/.style={font=\BookFigureFont},
     state/.style={
         circle,
         draw=BookBlue, fill=white,
         minimum size=9mm,
         inner sep=1pt,
-        line width=0.8pt
+        book stroke
     },
     obs/.style={
         rectangle,
@@ -36,7 +39,7 @@
         minimum height=7mm,
         align=center
     },
-    arrow/.style={->, line width=0.8pt}
+    arrow/.style={->, book stroke}
 ]
 
 % Hidden states
@@ -59,8 +62,8 @@
 \draw[arrow,draw=BookGold] (V) -- (w3);
 
 % Labels
-\node[left=10mm of D] {\footnotesize hidden states};
-\node[left=10mm of w1] {\footnotesize observations};
+\node[left=10mm of D] {\footnotesize Hidden states};
+\node[left=10mm of w1] {\footnotesize Observations};
 
 \end{tikzpicture}
 \end{document}

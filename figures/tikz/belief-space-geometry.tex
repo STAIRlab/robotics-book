@@ -15,6 +15,9 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure, scale=1.0, >=Latex]
   % Axes
@@ -22,8 +25,8 @@
   \draw[book axis] (0,-0.2) -- (0,3.6) node[above] {$y$};
 
   % Nominal path
-  \draw[BookBlue,line width=1.1pt] (0.5,0.5) .. controls (2.0,1.0) and (3.2,2.2) .. (5.5,2.8);
-  \node at (5.6,2.2) {\small nominal trajectory};
+  \draw[BookBlue,book curve] (0.5,0.5) .. controls (2.0,1.0) and (3.2,2.2) .. (5.5,2.8);
+  \node at (5.6,2.2) {\small Nominal trajectory};
 
   % Belief ellipses (covariance)
   \foreach \x/\y/\a/\b/\ang/\lab in {
@@ -42,7 +45,7 @@
   % Obstacles
   \fill[BookGold!10] (2.5,0.3) rectangle (3.9,1.3);
   \draw[BookGold] (2.5,0.3) rectangle (3.9,1.3);
-  \node at (3.2,0.85) {\small obstacle};
+  \node at (3.2,0.85) {\small Obstacle};
 
   % Caption-like callouts
   \draw[book axis] (2.3,2.5) -- (3.3,2.2);

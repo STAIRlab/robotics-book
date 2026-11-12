@@ -15,29 +15,32 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
     node distance=1.35cm and 0.6cm,
     >=Latex,
-    every node/.style={align=center, font=\small},
+    every node/.style={align=center, font=\BookFigureFont},
     block/.style={
         rectangle,
         rounded corners=2pt,
         draw,
         minimum width=2.15cm,
         minimum height=0.9cm,
-        line width=0.8pt,
+        book stroke,
         fill=BookLight
     },
-    arrow/.style={->, draw=BookBlue, line width=0.8pt},
-    feedback/.style={->, draw=BookGold, dashed, line width=0.8pt}
+    arrow/.style={->, draw=BookBlue, book stroke},
+    feedback/.style={->, draw=BookGold, dashed, book stroke}
 ]
 
-\node[block] (sense) {Image/Sensor\\Acquisition};
-\node[block, right=of sense] (vision) {Computer Vision\\and Perception};
+\node[block] (sense) {Image/sensor\\acquisition};
+\node[block, right=of sense] (vision) {Computer vision\\and perception};
 \node[block, right=of vision] (slam) {Localization\\and SLAM};
-\node[block, right=of slam] (dt) {Digital Twin\\Updating};
-\node[block, right=of dt] (decision) {Planning \&\\Decision Support};
+\node[block, right=of slam] (dt) {Digital twin\\updating};
+\node[block, right=of dt] (decision) {Planning \&\\Decision support};
 
 \draw[arrow] (sense) -- (vision);
 \draw[arrow] (vision) -- (slam);
@@ -45,12 +48,12 @@
 \draw[arrow] (dt) -- (decision);
 
 % feedback loop: vertical down, horizontal left, vertical up
-\draw[dashed, draw=BookGold, line width=0.8pt]
+\draw[dashed, draw=BookGold, book stroke]
 (decision.south) -- ([yshift=-8mm]decision.south);
 
-\draw[dashed, draw=BookGold, line width=0.8pt]
+\draw[dashed, draw=BookGold, book stroke]
 ([yshift=-8mm]decision.south) --
-node[midway, above, font=\footnotesize]{feedback}
+node[midway, above, font=\BookNoteFont]{Feedback}
 ([yshift=-8mm]sense.south);
 
 \draw[feedback]

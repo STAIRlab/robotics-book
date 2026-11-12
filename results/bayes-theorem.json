@@ -1,0 +1,24 @@
+{
+  "topic": "bayes-theorem",
+  "title": "Three-location posterior",
+  "data_status": "synthetic illustration",
+  "values": {
+    "posterior": [
+      0.6153846153846153,
+      0.30769230769230765,
+      0.07692307692307691
+    ]
+  },
+  "x": [
+    1,
+    2,
+    3
+  ],
+  "y": [
+    0.6153846153846153,
+    0.30769230769230765,
+    0.07692307692307691
+  ],
+  "xlabel": "Location",
+  "ylabel": "Posterior probability"
+}

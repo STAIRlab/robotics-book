@@ -15,3 +15,5 @@ pdflatex -interaction=nonstopmode -halt-on-error slam-factor-graph.tex
 Replace the filename to compile another diagram. No Python code, notebook execution or external data files are required. The standalone PDF has a small border for review; its diagram is the same as the corresponding book source.
 
 `figure-sources.json` maps each file to its book source and original figure label. Files with `schematic` in their name illustrate a concept; their drawn curves are not experimental data.
+
+All 37 diagrams opt into `book figure`; font, stroke weights, axes and factor-graph roles are defined centrally. PDFs retain natural type sizes, fit within the 6.5-inch text width, and omit volatile metadata so repeated compilation is byte reproducible. Computer Modern is used throughout, with its standard AMS blackboard companion for existing mathematical notation. The two Monte Carlo diagrams retain their distinct original seeds and sample counts while sharing visual conventions.

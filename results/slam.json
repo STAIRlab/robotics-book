@@ -1,0 +1,39 @@
+{
+  "topic": "slam",
+  "title": "A relative measurement leaves a global gauge unobserved",
+  "data_status": "synthetic illustration",
+  "values": {
+    "prior_covariance": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "posterior_covariance": [
+      [
+        0.5238095238095238,
+        0.47619047619047616
+      ],
+      [
+        0.47619047619047616,
+        0.5238095238095238
+      ]
+    ],
+    "global_shift_variance": 0.9999999999999998,
+    "relative_variance": 0.04761904761904767
+  },
+  "x": [
+    0,
+    1
+  ],
+  "y": [
+    0.9999999999999998,
+    0.04761904761904767
+  ],
+  "xlabel": "Direction (global shift=0, relative=1)",
+  "ylabel": "Posterior variance"
+}

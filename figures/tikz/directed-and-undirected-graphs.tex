@@ -15,11 +15,14 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+\begin{tikzpicture}[book figure,
         >=Latex,
         every node/.style={draw=BookBlue,fill=white,circle,minimum size=8mm,inner sep=0pt},
-        title/.style={draw=none,fill=none,rectangle,minimum size=0pt,font=\small}
+        title/.style={draw=none,fill=none,rectangle,minimum size=0pt,font=\BookFigureFont}
     ]
 
     % -------------------------
@@ -29,8 +32,8 @@
     \node (x2) at (2,1.2) {$x_2$};
     \node (x3) at (1,0) {$x_3$};
 
-    \draw[->,line width=0.8pt] (x1) -- (x3);
-    \draw[->,line width=0.8pt] (x2) -- (x3);
+    \draw[->,book stroke] (x1) -- (x3);
+    \draw[->,book stroke] (x2) -- (x3);
 
     \node[title] at (1,2.0) {Directed};
 
@@ -41,11 +44,11 @@
     \node (u2) at (7.2,1.2) {$x_2$};
     \node (u3) at (6.2,0) {$x_3$};
 
-    \draw[line width=0.8pt] (u1) -- (u2);
-    \draw[line width=0.8pt] (u2) -- (u3);
-    \draw[line width=0.8pt] (u1) -- (u3);
+    \draw[book stroke] (u1) -- (u2);
+    \draw[book stroke] (u2) -- (u3);
+    \draw[book stroke] (u1) -- (u3);
 
-    \node[title] at (6.2,2.0) {Undirected Clique};
+    \node[title] at (6.2,2.0) {Undirected clique};
 
     \end{tikzpicture}
 \end{document}

@@ -15,35 +15,18 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
-    >=Latex,
-    every node/.style={font=\small},
-    pose/.style={circle, draw, minimum size=8mm, inner sep=1pt, fill=BookLight},
-    landmark/.style={rectangle, draw, rounded corners=2pt, minimum width=8mm, minimum height=7mm, fill=BookTeal!8},
-factoro/.style={
-    rectangle,
-    draw,
-    fill=BookInk,
-    minimum size=2.3mm,
-    inner sep=0pt,
-    outer sep=0pt
-},
-factorm/.style={
-    rectangle,
-    draw=BookGold,
-    fill=BookGold,
-    minimum size=2.3mm,
-    inner sep=0pt,
-    outer sep=0pt
-},
-%%    factoro/.style={rectangle, draw, fill=BookInk, minimum size=2.2mm, inner sep=0pt},
-%%    factorm/.style={rectangle, draw=BookGold, fill=BookGold, minimum size=2.2mm, inner sep=0pt},
-    meas/.style={draw=BookGold, dashed, line width=0.8pt},
-    odo/.style={draw=BookInk, line width=0.8pt},
-    legendbox/.style={
-        draw, rounded corners=2pt, fill=white, inner sep=4pt
-    }
+    pose/.style={book pose},
+    landmark/.style={book landmark},
+    factoro/.style={book factor},
+    factorm/.style={book measurement factor},
+    meas/.style={book measurement},
+    odo/.style={book odometry},
+    legendbox/.style={draw=BookInk!30,rounded corners=2pt,fill=white,inner sep=6pt}
 ]
 
 %------------------------------------------------
@@ -84,27 +67,18 @@ factorm/.style={
 %------------------------------------------------
 
 
-\node[legendbox, anchor=north] (leg) at (2.2,-2.6) {
-\begin{tikzpicture}[>=Latex, every node/.style={font=\footnotesize}, x=1cm, y=1cm]
-
-    % robot pose
-    \node[pose] at (0,0) {};
-    \node[right] at (0.8,-0.3) {robot pose};
-
-    % landmark
-    \node[landmark] at (-0.1,-0.9) {};
-    \node[right] at (0.8,-1.2) {landmark};
-
-    % odometry factor
-    \draw[odo] (3.1,-0.3) -- (3.9,-0.3);
-    \filldraw[fill=BookInk, draw=BookInk, line width=0.25pt, sharp corners] (3.375,-0.425) rectangle (3.625,-0.175);
-    \node[right] at (4,-0.3) {odometry factor};
-
-    % landmark-observation factor
-    \draw[meas] (3.1,-1.2) -- (3.9,-1.2);
-    \filldraw[fill=BookGold, draw=BookGold, line width=0.25pt, sharp corners] (3.375,-1.325) rectangle (3.625,-1.075);
-    \node[right] at (4,-1.2) {landmark-observation factor};
-
+\node[legendbox,anchor=north] at (2.2,-2.6) {
+\begin{tikzpicture}[book figure,sharp corners,anchor=center,every node/.style={font=\BookNoteFont,anchor=center},x=1cm,y=1cm]
+    \node[pose,minimum size=5mm] at (0,0) {};
+    \node[anchor=west] at (0.45,0) {Robot pose};
+    \node[landmark,minimum width=5mm,minimum height=4mm] at (0,-0.6) {};
+    \node[anchor=west] at (0.45,-0.6) {Landmark};
+    \draw[odo] (3.0,0) -- (3.6,0);
+    \node[factoro] at (3.3,0) {};
+    \node[anchor=west] at (3.8,0) {Odometry factor};
+    \draw[meas] (3.0,-0.6) -- (3.6,-0.6);
+    \node[factorm] at (3.3,-0.6) {};
+    \node[anchor=west] at (3.8,-0.6) {Landmark-observation factor};
 \end{tikzpicture}
 };
 

@@ -15,6 +15,9 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
 node distance=12mm and 20mm,
@@ -25,7 +28,7 @@ rounded corners=2pt,
 align=center,
 minimum width=32mm,
 minimum height=9mm,
-font=\small,
+font=\BookFigureFont,
 fill=BookLight
 },
 core/.style={
@@ -34,7 +37,7 @@ rounded corners=2pt,
 align=center,
 minimum width=36mm,
 minimum height=10mm,
-font=\small\bfseries,
+font=\BookFigureFont\bfseries,
 fill=BookBlue!12
 },
 app/.style={
@@ -43,61 +46,61 @@ rounded corners=2pt,
 align=center,
 minimum width=30mm,
 minimum height=9mm,
-font=\small,
+font=\BookFigureFont,
 fill=BookGold!8
 },
-line/.style={->, draw=BookBlue, line width=0.8pt}
+line/.style={->, draw=BookBlue, book stroke}
 ]
 
 %------------------------------------------------
 % Foundations
 %------------------------------------------------
 
-\node[concept] (prob) {Probability Theory\\Random Variables};
+\node[concept] (prob) {Probability theory\\Random variables};
 
-\node[core, below=of prob] (bayes) {Bayes' Theorem};
+\node[core, below=of prob] (bayes) {Bayes' theorem};
 
-\node[concept, below left=of bayes] (infer) {Bayesian\\Inference};
-\node[concept, below right=of bayes] (predict) {Bayesian\\Prediction};
+\node[concept, below left=of bayes] (infer) {Bayesian\\inference};
+\node[concept, below right=of bayes] (predict) {Bayesian\\prediction};
 
 %------------------------------------------------
 % Sequential estimation
 %------------------------------------------------
 
-\node[core, below=18mm of bayes] (seq) {Sequential Bayesian\\Estimation};
+\node[core, below=18mm of bayes] (seq) {Sequential Bayesian\\estimation};
 
-\node[concept, below left=of seq] (kf) {Kalman\\Filters};
-\node[concept, below=of seq] (pf) {Particle\\Filters};
-\node[concept, below right=of seq] (hmm) {Hidden Markov\\Models};
+\node[concept, below left=of seq] (kf) {Kalman\\filters};
+\node[concept, below=of seq] (pf) {Particle\\filters};
+\node[concept, below right=of seq] (hmm) {Hidden Markov\\models};
 
 %------------------------------------------------
 % Monte Carlo
 %------------------------------------------------
 
-\node[core, below=18mm of pf] (mc) {Monte Carlo Methods};
+\node[core, below=18mm of pf] (mc) {Monte Carlo methods};
 
-\node[concept, below left=of mc] (is) {Importance\\Sampling};
-\node[concept, below right=of mc] (mcmc) {Markov Chain\\Monte Carlo};
+\node[concept, below left=of mc] (is) {Importance\\sampling};
+\node[concept, below right=of mc] (mcmc) {Markov chain\\Monte Carlo};
 
 %------------------------------------------------
 % Decision
 %------------------------------------------------
 
-\node[core, below=18mm of mc] (decision) {Bayesian Decision Theory};
+\node[core, below=18mm of mc] (decision) {Bayesian decision theory};
 
-\node[concept, below=of decision] (opt) {Optimal Decisions\\Under Uncertainty};
+\node[concept, below=of decision] (opt) {Optimal decisions\\under uncertainty};
 
 %------------------------------------------------
 % Applications
 %------------------------------------------------
 
-\node[app, left=of opt] (loc) {Robot\\Localization};
+\node[app, left=of opt] (loc) {Robot\\localization};
 
 \node[app, below left=of opt] (slam) {SLAM};
 
-\node[app, below right=of opt] (plan) {Risk-Aware\\Planning};
+\node[app, below right=of opt] (plan) {Risk-aware\\planning};
 
-\node[app, right=of opt] (dt) {Digital Twins\\for Infrastructure};
+\node[app, right=of opt] (dt) {Digital twins\\for infrastructure};
 
 %------------------------------------------------
 % Arrows

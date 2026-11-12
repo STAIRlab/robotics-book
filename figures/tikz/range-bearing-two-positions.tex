@@ -15,6 +15,9 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure, scale=1.05,>=Latex]
 
@@ -46,12 +49,12 @@
 \draw[BookTeal,dash pattern=on 4pt off 2pt on 1pt off 2pt] (L) circle (\rTwo cm);
 
 % Range lines
-\draw[BookBlue,line width=1.1pt] (L)--(X1);
-\draw[BookTeal,line width=1.1pt] (L)--(X2);
+\draw[BookBlue,book curve] (L)--(X1);
+\draw[BookTeal,book curve] (L)--(X2);
 
 % Bearing rays
-\draw[BookBlue,line width=1.1pt,->] (L)--($(L)!1.25!(X1)$);
-\draw[BookTeal,line width=1.1pt,->] (L)--($(L)!1.25!(X2)$);
+\draw[BookBlue,book curve,->] (L)--($(L)!1.25!(X1)$);
+\draw[BookTeal,book curve,->] (L)--($(L)!1.25!(X2)$);
 
 % Angle arcs
 \draw[BookBlue] ($(L)+(1.2,0)$) arc (0:\bearingOne:1.2);

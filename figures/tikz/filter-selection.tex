@@ -15,13 +15,16 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
+\begin{tikzpicture}[book figure,
     node distance=1.6cm,
-    every node/.style={font=\small},
+    every node/.style={font=\BookFigureFont},
     decision/.style={diamond, draw=BookGold, fill=BookGold!5, aspect=2, align=center, inner sep=2pt},
     block/.style={rectangle, draw=BookBlue, fill=BookLight, align=center, rounded corners=2pt, inner sep=4pt},
-    line/.style={->, draw=BookBlue, line width=0.8pt}
+    line/.style={->, draw=BookBlue, book stroke}
 ]
 
 % Nodes

@@ -2,7 +2,7 @@
 
 Computational examples for **Bayesian Methods for Autonomous Robotics and Intelligent Infrastructure Systems: Probabilistic Perception, Estimation, and Digital Twins**, by **Khalid M. Mosalam**, Taisei Professor of Civil Engineering, University of California, Berkeley.
 
-The notebooks are organized by topic. Each can be run independently from top to bottom, and some support several chapters. The numerical calculations are visible in the notebooks. The shared [book.mplstyle](notebooks/book.mplstyle) file controls figure appearance only.
+The notebooks are organized by topic. Each can be run independently from top to bottom, and some support several chapters. The larger notebooks contain their numerical calculations directly. Short chapter notebooks call the inspectable [chapter_examples.py](robotics_book/chapter_examples.py) implementation and print their computed values. The shared [book.mplstyle](notebooks/book.mplstyle) file controls figure appearance only.
 
 ## Contributors and maintainers
 
@@ -19,6 +19,8 @@ Use Python 3.12. In your Python environment, install the pinned dependencies fro
 ```bash
 python -m pip install -r requirements.txt
 ```
+
+Notebook execution tools are listed separately in `requirements-dev.txt`. To install them for automated execution and validation, use `python -m pip install -r requirements-dev.txt`. They are not imported by the numerical examples.
 
 Open a notebook in JupyterLab, Jupyter Notebook, or a notebook-capable editor, using that Python environment. To install and launch JupyterLab:
 
@@ -68,6 +70,40 @@ These six notebooks are authored by **Ziad Mosalam**. They develop selected exam
 | [bayesian-decisions.ipynb](notebooks/bayesian-decisions.ipynb) | Posterior expected losses, action selection and the value of another inspection | `bayesian-decisions` |
 | [rare-event-monte-carlo.ipynb](notebooks/rare-event-monte-carlo.ipynb) | Ordinary Monte Carlo and importance sampling against an analytic probability | `rare-event-monte-carlo` |
 | [slam.ipynb](notebooks/slam.ipynb) | Weighted pose-graph optimization and the effect of a loop closure | `slam-loop-closure` |
+
+## Chapter calculations used by the book
+
+These 19 notebooks restore the generating code for numerical illustrations already included in the manuscript. They preserve the earlier calculation inputs and outputs while exporting vector PDFs with selectable Computer Modern text at a fixed physical width. Each notebook displays its figure and prints the numerical values. The first 18 use [chapter_examples.py](robotics_book/chapter_examples.py); `monte-carlo-path-costs` contains its calculation directly. JSON records are written to `results/`.
+
+| Notebook | Figure and calculation |
+|---|---|
+| [bayes-theorem.ipynb](notebooks/bayes-theorem.ipynb) | Three-location posterior |
+| [bayesian-updating.ipynb](notebooks/bayesian-updating.ipynb) | Repeated independent detections |
+| [bayesian-inference.ipynb](notebooks/bayesian-inference.ipynb) | Scalar Gaussian update |
+| [bayesian-prediction.ipynb](notebooks/bayesian-prediction.ipynb) | Velocity and acceleration contributions to variance |
+| [real-time-bayesian-systems.ipynb](notebooks/real-time-bayesian-systems.ipynb) | Cumulative latency and deadline |
+| [kalman-filter.ipynb](notebooks/kalman-filter.ipynb) | Sequential scalar-update variances |
+| [extended-kalman-filter.ipynb](notebooks/extended-kalman-filter.ipynb) | Normalized variances after one range update |
+| [unscented-kalman-filter.ipynb](notebooks/unscented-kalman-filter.ipynb) | Squaring and its linearization at zero |
+| [bayesian-decision-theory.ipynb](notebooks/bayesian-decision-theory.ipynb) | Renewal-reward inspection interval |
+| [probabilistic-robotics.ipynb](notebooks/probabilistic-robotics.ipynb) | Condition-state Bayes filter |
+| [hidden-markov-models.ipynb](notebooks/hidden-markov-models.ipynb) | Three-observation forward probabilities |
+| [bayesian-learning.ipynb](notebooks/bayesian-learning.ipynb) | Sensor-bias posterior variance |
+| [general-state-space-models.ipynb](notebooks/general-state-space-models.ipynb) | Filtering and backward smoothing variances |
+| [probabilistic-graphical-models.ipynb](notebooks/probabilistic-graphical-models.ipynb) | Exact enumeration of a chain |
+| [computer-vision.ipynb](notebooks/computer-vision.ipynb) | Coordinate-error propagation |
+| [slam-foundations.ipynb](notebooks/slam-foundations.ipynb) | Global-shift and relative variances; exports `slam` |
+| [digital-twins.ipynb](notebooks/digital-twins.ipynb) | Model-discrepancy calibration |
+| [infrastructure-applications.ipynb](notebooks/infrastructure-applications.ipynb) | Recomputation of the printed modal-period table |
+| [monte-carlo-path-costs.ipynb](notebooks/monte-carlo-path-costs.ipynb) | Seed-0 path-cost means and standard errors; exports `monte-carlo-results` |
+
+Except for the two explicit export names above, each figure uses its notebook's stem. The infrastructure example recomputes a printed table; it does not validate the model against a newly supplied field dataset. `slam-foundations` is a two-variable gauge illustration, while `slam` remains the separate pose-graph notebook. `monte-carlo-path-costs` uses exactly the same seed-0 samples as the original print-only `monte-carlo-methods` notebook.
+
+The numerical checks in `tests/test_chapter_examples.py` verify selected book values, preservation of the unobserved SLAM gauge, and non-increasing variance under smoothing. Run them from the repository root:
+
+```bash
+python -m unittest discover -s tests -p test_chapter_examples.py -v
+```
 
 ## Data and interpretation
 

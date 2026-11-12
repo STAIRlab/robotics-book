@@ -1,8 +1,11 @@
 # Berkeley editorial: shared visual settings for the companion figures.
 # Keep method colors explicit in comparison plots: EKF teal, UKF gold, PF blue.
 font.family: serif
-font.serif: STIXGeneral, DejaVu Serif
-mathtext.fontset: stix
+font.serif: cmr10, DejaVu Serif
+mathtext.fontset: cm
+axes.formatter.use_mathtext: True
+axes.unicode_minus: False
+axes.titlelocation: left
 font.size: 10
 axes.titlesize: 11
 axes.titleweight: normal
@@ -40,7 +43,7 @@ figure.dpi: 130
 figure.facecolor: white
 savefig.facecolor: white
 savefig.dpi: 200
-savefig.bbox: tight
+savefig.bbox: standard
 savefig.pad_inches: 0.06
 pdf.fonttype: 42
 ps.fonttype: 42

@@ -4,295 +4,295 @@
     "book_source": "sections/Part_I/bayes_theorem.tex",
     "tex": "bayes-theorem.tex",
     "pdf": "bayes-theorem.pdf",
-    "source_sha256": "66fbfc122638bc9c155af6a48914f298f1e26e2c5694bd4ad469baeb3c13f6e7",
-    "pdf_sha256": "84f6adc1956df7ae0b1c1678a8860083e9c74b2a372a9b019afcec111cfa200a"
+    "source_sha256": "02a2c58a961da35e4f320d656e72d96202ec04cc9385840055b10f97fd1c6c9d",
+    "pdf_sha256": "7f8d7c7c29f8f06e7bf30d606e945c055e7282a2c22348700f9f6e136d77821e"
   },
   {
     "label": "fig:bayesian_inference",
     "book_source": "sections/Part_I/bayesian_inference.tex",
     "tex": "bayesian-inference.tex",
     "pdf": "bayesian-inference.pdf",
-    "source_sha256": "22890854f62d7af428df298ebe694bc754c413e0191dd90a493a0cad8e4bdc96",
-    "pdf_sha256": "8f666041c540e9817f27190898953e885c8712d011d16693c8a42205e01650fa"
+    "source_sha256": "5b865a323b783cea56dc742c291f6579c2f86d8579bcb00cec87321c3804f511",
+    "pdf_sha256": "7796965909c1d741cdbe9afc913bad881edc33325c803f53668907c29afa13aa"
   },
   {
     "label": "fig:bayes-prediction-illustration",
     "book_source": "sections/Part_I/bayesian_prediction.tex",
     "tex": "bayesian-prediction.tex",
     "pdf": "bayesian-prediction.pdf",
-    "source_sha256": "8f1102bdf3a2ccbb10fd513608c1ed552533e07883aca4ffeb1bf4a533e63a0a",
-    "pdf_sha256": "9c82beb15071d66aa6899918c509c131b5cbe281a2c4d82281504a7162ec6d9b"
+    "source_sha256": "3f5b908d97f123c80c50a9cd235de613deccee4da48628eace01d4809beedba3",
+    "pdf_sha256": "3a65b6a5713049c74281080ee75762f1de7811d57667111190717767eea9b239"
   },
   {
     "label": "fig:ekf_pf_decision",
     "book_source": "sections/Part_I/RT_bayesian_systems.tex",
     "tex": "filter-selection.tex",
     "pdf": "filter-selection.pdf",
-    "source_sha256": "70ae4e57538a2412b668fdc31ac023c3e175eade9bd71c7648c03210e360ae77",
-    "pdf_sha256": "442ff02168af7621dfab2d89556db9c23e6320350fd2d96dbe82f5d2a810f51a"
+    "source_sha256": "7418c99f2d523df881cb15bdae1e6862dca5c82b291027fec2b8d651209acf72",
+    "pdf_sha256": "5bb424be6b57d8d3c2cbd15383c0efe70f64a05cbcaca52142793a6f00c3afd9"
   },
   {
     "label": "fig:KF_flow_diag",
     "book_source": "sections/Part_II/kalman_filter.tex",
     "tex": "kalman-filter-cycle.tex",
     "pdf": "kalman-filter-cycle.pdf",
-    "source_sha256": "0d73f3f4580134dc7bd25480c5382b1c9ffa9b3cbb1fca11b6dc3fe6d57293b9",
-    "pdf_sha256": "2a49f5ebaad7fcc9c316766736487a8fd6036ead7bebe36475fa12e54b76658b"
+    "source_sha256": "b7941033a225f9ba2037606e62e32a77445f6f38ca5a701fc24b33691e321c00",
+    "pdf_sha256": "e13423df6a7ebe50a0ccc894f74fd3d346a83ad2633159f80a795220d9933e80"
   },
   {
     "label": "fig:sigma_points",
     "book_source": "sections/Part_II/ukf.tex",
     "tex": "sigma-points.tex",
     "pdf": "sigma-points.pdf",
-    "source_sha256": "8b8cb4c459d0c575255dc7ad7b23828be81ebf0e8b8ff94cdff124bce9018035",
-    "pdf_sha256": "74977b7259e5f8a593949f5a6cdec73a04e5fe366c0968d06f8ee74e737d8ef2"
+    "source_sha256": "43e530860092f07ce45042c9cbab0e9569176fabced998fa41709977df2d15db",
+    "pdf_sha256": "c12989612c6f9bd944dc84079a00e003a88320c87e2413a2879c1272a655cf4f"
   },
   {
     "label": "fig:sigma_points_UT_intuition",
     "book_source": "sections/Part_II/ukf.tex",
     "tex": "unscented-transform.tex",
     "pdf": "unscented-transform.pdf",
-    "source_sha256": "9b4ce0b5f375e5c9998b270a14355a83071b6588a677254c03928167dfbad766",
-    "pdf_sha256": "593e4c4f36a8b8e69227f384162b86c9580f00739ec9901d2297053f0c365054"
+    "source_sha256": "4b0250e8e6b2d6b436f5cc4126d65fad4752644964805dcb5d821a826443aeaf",
+    "pdf_sha256": "8cdbce2d4b455b8623f966415b71d8d7d0034179fe69237c96402eb481a22311"
   },
   {
     "label": "fig:decision-network",
     "book_source": "sections/Part_II/bayesian_decision_theory.tex",
     "tex": "decision-network.tex",
     "pdf": "decision-network.pdf",
-    "source_sha256": "01c9706a54b4bd28644090b146f41af4562bbf5131238c8657b6b43d43385ee4",
-    "pdf_sha256": "2ed0a58633486c91e45a8c3acd189e7a1e00314ce303437d7398be079c7b7104"
+    "source_sha256": "bbadaae4c51636ea8971a4c7e121d8776452cd8ebd7249771f7aa3259872109b",
+    "pdf_sha256": "5c1daaefe6b080d916e344c97c51835a46c41815b4561a05e3966dc8509e59c8"
   },
   {
     "label": "fig:temporal_inference_tasks",
     "book_source": "sections/Part_IV/hidden_Markov_state_space.tex",
     "tex": "filtering-prediction-smoothing.tex",
     "pdf": "filtering-prediction-smoothing.pdf",
-    "source_sha256": "fe30bccce848ddadbbfb6d6a0242a3ecb276bbc736791a78e061c3fa8e11aaed",
-    "pdf_sha256": "382dc46a39dd1a0ba663f7d39b1fdd7a235497ab750c745c619afc89866f2312"
+    "source_sha256": "1edf33e79ad6426015351f20c2fc522ea7540776ba0e0cadef7bb54354a67277",
+    "pdf_sha256": "73cca607ae2505ad1a7371b77fa2b1a6a89c366ff5687803dd27844f86574c63"
   },
   {
     "label": "fig:viterbi_trellis",
     "book_source": "sections/Part_III/hmm.tex",
     "tex": "viterbi-trellis.tex",
     "pdf": "viterbi-trellis.pdf",
-    "source_sha256": "b9196eb1e7632c2f4f40c4369b611ea91ba7c7245968b4616063ca92825fffcb",
-    "pdf_sha256": "32f5316577073ee40df14845f629dca1a98bb98f240c584197e920fa78537345"
+    "source_sha256": "98c8252b49b7a68b4833d931f4772a97720901ed6a6c1b04e76a6e7cbeace1a1",
+    "pdf_sha256": "65d3aed124909368c5b7550601e2693a45a9e00bffaafd4e297b2de1b152bc63"
   },
   {
     "label": "fig:pos_hmm_example",
     "book_source": "sections/Part_III/hmm.tex",
     "tex": "hmm-language.tex",
     "pdf": "hmm-language.pdf",
-    "source_sha256": "62d7695a5906a3bec49ad987b39289683b6cf9813ca71b3eec79486abfc5e4c9",
-    "pdf_sha256": "a0f9f385e39be5010d54455550272293d287f99adef996d51368913aff1bfff6"
+    "source_sha256": "dfd1f3dbf632c923e825804229e43237b93380c67cd597a4c4d64231bd9723e3",
+    "pdf_sha256": "fdcd9c6b7096cd66f3cfbbfd44cf9cd455fb456686755553f57945bba5cf07e1"
   },
   {
     "label": "fig:hmm_damage_example",
     "book_source": "sections/Part_III/hmm.tex",
     "tex": "hmm-damage.tex",
     "pdf": "hmm-damage.pdf",
-    "source_sha256": "d91df5003296d8524edba380c8fc5fcbfbf1dc29d4ba3d88d0624efb448aa176",
-    "pdf_sha256": "e800252547e1b4fe339b240976828c8c0ecbe64d60d5a812e8e6b4172c94f7ae"
+    "source_sha256": "effc56126f8ff1c64e257a8c558a178cbbbcdb4487b851589dad0ef4003ac61e",
+    "pdf_sha256": "a4cb324eacb71ce26193e1ffa9ce1f71278b8158939b8d5afd2c78e2e1f37a46"
   },
   {
     "label": "fig:mc_histogram",
     "book_source": "sections/Part_IV/monte_carlo.tex",
     "tex": "monte-carlo-histogram-schematic.tex",
     "pdf": "monte-carlo-histogram-schematic.pdf",
-    "source_sha256": "6bb9595fcd1e17a34a88d2ca54afb12b77ba1f4ed7307cb611716221675f3112",
-    "pdf_sha256": "e0d07eb31316b7a8a1d4054fd8880689d5ec75cd634a1335438c30020ae607be"
+    "source_sha256": "1b560eaaedbbf3641b4861f84b4f8c3889a96dc481aeeb90cf6aba32a93cd320",
+    "pdf_sha256": "7b5bee2059b4464367426a7d6843ee0b3db2abd0bbf0bb52ed75722818d42917"
   },
   {
     "label": "fig:mc_pi_estimation",
     "book_source": "sections/Part_IV/monte_carlo.tex",
     "tex": "monte-carlo-pi.tex",
     "pdf": "monte-carlo-pi.pdf",
-    "source_sha256": "005b78439f56981037ca62ba5eaa7cafcdf60d26616fca0cba4ca9888c6dfff4",
-    "pdf_sha256": "5dd60761cb926d13986730b10f5f1c8050e644ec7f1dcedcf23faf849f8d4d95"
+    "source_sha256": "8e4aa4bd1b2fde17e726b2d373ff3ece58a28ac82211c7097bf96b04c89c16bd",
+    "pdf_sha256": "b5171721ba4861f163df1a978f0cbd1473b2298de060994f4639087a5b85385d"
   },
   {
     "label": "fig:Hierarchical_Bayesian_model",
     "book_source": "sections/Part_IV/bayesian_learning.tex",
     "tex": "hierarchical-bayesian-model.tex",
     "pdf": "hierarchical-bayesian-model.pdf",
-    "source_sha256": "247f3fc252da2c32dca7145955d257321426b7324a82483a4c2b9e38da4f8148",
-    "pdf_sha256": "a53f45377570c99b9a51c59fdfbdee6bee514cf5d713d490c76658c4743567e0"
+    "source_sha256": "73bf890a2e8223cf685d39066cdd89c1e0e99252a1ac5466212e50c3b3b17f65",
+    "pdf_sha256": "bd635bc2bcbc9a6017b32fb845525287ead4bd5397c7b398a34e06e66c3e6b7a"
   },
   {
     "label": "fig:Posterior_Contraction",
     "book_source": "sections/Part_IV/bayesian_learning.tex",
     "tex": "posterior-contraction.tex",
     "pdf": "posterior-contraction.pdf",
-    "source_sha256": "975becffba779a4fc49538abd36060500ed0f8899707a11db92787ef89ed1c4d",
-    "pdf_sha256": "59ea6c327b3a9212c6b57365f31106d3ccf84215b25e6a6bccf9f46274c311b7"
+    "source_sha256": "23d2a52183486d40347c51ec3fffb90826d0a651fc4afb36f3caf9d6a2700e14",
+    "pdf_sha256": "a8f57f98d88a169fb97e515f9e9f04a405e2b26848ca8a103074105133fe7d04"
   },
   {
     "label": "fig:graph_models",
     "book_source": "sections/Part_IV/probablistic_graphics.tex",
     "tex": "directed-and-undirected-graphs.tex",
     "pdf": "directed-and-undirected-graphs.pdf",
-    "source_sha256": "0f88e5992d8dc7cae35f0481b4775d9924aaa1c0bee1647289dc15d5ae8a1fbf",
-    "pdf_sha256": "47735f5c20c7ec21f5a98eec39ede8f939cb59781da454dead745fdbc11a2da8"
+    "source_sha256": "d7261277e34162955005f4352c88471190f0e010a8bf2e8fcfa7be30c91514fd",
+    "pdf_sha256": "3e3054b9aa593b1e2a9bb33b918f1a66f4d6a6af4d1314432856d1d8a4d4e022"
   },
   {
     "label": "fig:graph_chain",
     "book_source": "sections/Part_IV/probablistic_graphics.tex",
     "tex": "directed-chain.tex",
     "pdf": "directed-chain.pdf",
-    "source_sha256": "deb3114e6b57cb88665d0c504ba730098c679c49299397215c2e65346fbb3ed3",
-    "pdf_sha256": "3ec5a376d0c5765397780c4bf943ab67f692fe31d27a196d24b7e5ec291b755c"
+    "source_sha256": "13a760cc5bbe4c88fccf29c9d2f5218128710c84b1fa9b25078d4849f72f29ae",
+    "pdf_sha256": "a8460a53bd805de717a45c77182a9010f80885b323765e0266e55452e43ee6de"
   },
   {
     "label": "fig:dbn_pgm",
     "book_source": "sections/Part_IV/probablistic_graphics.tex",
     "tex": "dynamic-bayesian-network.tex",
     "pdf": "dynamic-bayesian-network.pdf",
-    "source_sha256": "9f010bc26d0d7e8ccc16fa30022ea748ecc3bdf4387f37d488874674e43c979d",
-    "pdf_sha256": "5f3d04944ca27200385ec00851a8967f12013bf6dc82f87c19d8ac0d7972cc0a"
+    "source_sha256": "850aa5bc9853f6820733d7b26905951522e7f493426c46a983b9f434afb1ba17",
+    "pdf_sha256": "f84511e2eae789c3dfb317e74d8d87bad922529ec727cced12f5c54184aa6aa0"
   },
   {
     "label": "fig:factor-graph-slam",
     "book_source": "sections/Part_III/prob_robotics_foundations.tex",
     "tex": "robotics-factor-graph.tex",
     "pdf": "robotics-factor-graph.pdf",
-    "source_sha256": "32684117d305b3e2567a0139a0f86b7c6d459125bf901138b9ca3ade29a67814",
-    "pdf_sha256": "2ab2a23a51597e0ab9fc40e68954d61a213d470b45f3866550658be77179109e"
+    "source_sha256": "b13aace4e511d3b4d318b10261350c55d2ec8894898679bc44698f0b2c5ddc1c",
+    "pdf_sha256": "b3473e1f246e2ae2315070c8c64518f2e0eb62166b083c7b14db9c47922e25a0"
   },
   {
     "label": "fig:dbn-filtering",
     "book_source": "sections/Part_III/prob_robotics_foundations.tex",
     "tex": "filtering-state-model.tex",
     "pdf": "filtering-state-model.pdf",
-    "source_sha256": "56ee309c4d36d59d0006cd4e6c0a3e658c3c8b90c5189843ddf1bb5869d36121",
-    "pdf_sha256": "a563ed343109d8f8b6ccf26b7169ddb5e56a4869260d73f05a97250594bdaf5b"
+    "source_sha256": "ba5e62e55ed77f0fc4893b58deca48c9c935be28051d569c354bca956982e876",
+    "pdf_sha256": "473055e5c53aff812e4d2715e9631887613db610169922533996eb1e679f6ae9"
   },
   {
     "label": "fig:concept_map",
     "book_source": "sections/front/preface.tex",
     "tex": "book-concept-map.tex",
     "pdf": "book-concept-map.pdf",
-    "source_sha256": "a419645f5297e731925567213fb79140e28a798e2da32d1a755ef7d58f7b533a",
-    "pdf_sha256": "ca6591b2578cbf1cafee73017380d5b6da080d494ed54de078ea32a017bfce48"
+    "source_sha256": "5a7f94dd079fa6a494154e928775be538ce0dd82742945f3e618cfea4ed19e72",
+    "pdf_sha256": "bad2aa98173230c115f122ff46f39c207f2eb330dbecb8128320d5c6bb4803f5"
   },
   {
     "label": "fig:roadmap",
     "book_source": "sections/front/introduction.tex",
     "tex": "methods-roadmap.tex",
     "pdf": "methods-roadmap.pdf",
-    "source_sha256": "26b492d59f49fd01126f1d3a99965b09b16368bb27535616ceda2ac995afecf2",
-    "pdf_sha256": "9e20a56e99bbed1509c095edd6a7807bcba91680fb6ad587e9b5dc4aa85783ac"
+    "source_sha256": "d4e2c0bdd2bde8acca43d03135f704105d49d2cd5454a2b5f7b27cc2c7387daa",
+    "pdf_sha256": "7d7805115f5f8774f4fcdd32dab4ab095e2982eb7d3b36599b2e9498949095a6"
   },
   {
     "label": "fig:robotic_digital_twin_workflow_intro",
     "book_source": "sections/front/introduction.tex",
     "tex": "robotic-sensing-and-digital-twin.tex",
     "pdf": "robotic-sensing-and-digital-twin.pdf",
-    "source_sha256": "6dd4e02066f3d0530354ee1a2b0d2ef787c573bc75ed291de62c43ab11f7730f",
-    "pdf_sha256": "c4c5160a7ff50eb5feb7e0bd1a6276da32b8fd9e7ec362862942ba1c92361130"
+    "source_sha256": "b099eabeef942d2b59a12070511dc9a163157c38ac0bf45c84664de70cd51f44",
+    "pdf_sha256": "fe882c0eeabfb1050d85c027010389a24417696ff8ede0c93fe92710c9fd2ec1"
   },
   {
     "label": "fig:book_roadmap_autonomy",
     "book_source": "sections/back/conclusions.tex",
     "tex": "book-synthesis.tex",
     "pdf": "book-synthesis.pdf",
-    "source_sha256": "006e4d7dd5a100454f2964fcba4da1e27eb56b16c0df0f90ed17d007db9b6647",
-    "pdf_sha256": "598d619eb201a62b4336e7fc3aff3d75c3eeaf50f7d507249aeca9e8ed28a206"
+    "source_sha256": "0fd66f8bd982791d7db49a1bc171d956d1502d8b5e721546e62a8938d0b0d53e",
+    "pdf_sha256": "88d61baa2ea1c904329d2bb082ff6fface1e4ecec30815d66461f02de1adfc5f"
   },
   {
     "label": "fig:cv_pipeline",
     "book_source": "sections/Part_V/CV.tex",
     "tex": "vision-pipeline.tex",
     "pdf": "vision-pipeline.pdf",
-    "source_sha256": "f003a8dd54558141e778764a69966ccf050c345e5689094fc67771b228691c44",
-    "pdf_sha256": "542c9efa77d17a9ed546752dca99633988bd984d8da51a4b1dbcc62551543a5b"
+    "source_sha256": "ebec2907ce8a75929382e6d2c3dc9e641c95a6d2ecfc1024be5bc4bf2a400ddc",
+    "pdf_sha256": "16ff3a76c745132b24171ada3a7305c10fb3cc0492a2704a2e4372a067063765"
   },
   {
     "label": "fig:autonomous_infrastructure_loop",
     "book_source": "sections/Part_VI/infrastructure_applications.tex",
     "tex": "autonomous-infrastructure-loop.tex",
     "pdf": "autonomous-infrastructure-loop.pdf",
-    "source_sha256": "8dded13f4689be0e4e71c73619311b39dc0d7592346bce7721b8c4ff471f915d",
-    "pdf_sha256": "deba78e78c5c1b83173c71fe79385e11af28ec3c40441bcd36ea67ff8424c6df"
+    "source_sha256": "2f5bd43253f3d93d7602378f4f5eb88e06db57832e21dd7f9c70132a9e250731",
+    "pdf_sha256": "d1298714605eeaefcc9b031b131419637dd54b6de62a912cc87abf2b59f0e1e4"
   },
   {
     "label": "fig:range_bearing_geometry",
     "book_source": "sections/Part_II/sensor_models.tex",
     "tex": "range-bearing-geometry.tex",
     "pdf": "range-bearing-geometry.pdf",
-    "source_sha256": "79bd167fb708fc44bd70044a058bc38be4bef00b083086298b34e3e3c17cdd06",
-    "pdf_sha256": "76e842ce17aacbcfa22bf83c8ad4b40fc4dc248f5b8b24d87747f0530d604ed8"
+    "source_sha256": "ba073b6fa52c16151e818581ac5a3af363a564d4e0f41c3ada1594ae359f5ea6",
+    "pdf_sha256": "aa49a3ef9f9bdb8532a5ffbcc5f1f41560cb2e1fb9780e161025e43ee27bfda9"
   },
   {
     "label": "fig:range_bearing_two_cases",
     "book_source": "sections/Part_II/sensor_models.tex",
     "tex": "range-bearing-two-positions.tex",
     "pdf": "range-bearing-two-positions.pdf",
-    "source_sha256": "d7ce42e470832e5cae3418f0796ac452c494cd71f60efd5e0143c82c31be7894",
-    "pdf_sha256": "b28401f21cdea63b36c9b1de0d500562cce3d866d3d77d0ffdf7032a3a3b586a"
+    "source_sha256": "81d8f8492bf05c40ad6d2e98825270bc8d088565c88bcb8fd00944d0fedce657",
+    "pdf_sha256": "3f6fd6cc2e59255def7a2ff0b58850ab72912610ac51098aa20d4f4d14291606"
   },
   {
     "label": "fig:robotic_digital_twin_workflow_DT",
     "book_source": "sections/Part_V/DT.tex",
     "tex": "digital-twin-workflow.tex",
     "pdf": "digital-twin-workflow.pdf",
-    "source_sha256": "654b6def2b27e9cb46ccf1c388f3404850c700b5be81eee06917f8c130025f72",
-    "pdf_sha256": "0e6a33948d0e258b3a9826a4b8f0fd3c45131e9f714e4b7f19a2bf22663183b5"
+    "source_sha256": "487e8f97766bf4d61048c026a5bb3bd49e4b2e8bc0a07cbb6042ada34312fd3d",
+    "pdf_sha256": "6c939aece13276b39c51ccac6577f3293b9bab107271a96e5d70dfd769e8352d"
   },
   {
     "label": "fig:temporal_dt_update",
     "book_source": "sections/Part_V/DT.tex",
     "tex": "digital-twin-updating-schematic.tex",
     "pdf": "digital-twin-updating-schematic.pdf",
-    "source_sha256": "87db7d59618d8a0965c5d7599d0384468f790411caf733354ea4360c8055db68",
-    "pdf_sha256": "ce96eab9f575a45a1b90f69693c23e5173d299eaca58417bc45b2fe274d536dd"
+    "source_sha256": "df717cd5b4d2f83f8908bbd180fadfbe49eec0c7ea11913b3d2a9be8328d63d1",
+    "pdf_sha256": "55e07a87b484d863e12bf2ef69e69766182c007ea506492be8444c5753b0898d"
   },
   {
     "label": "fig:dt_assimilation",
     "book_source": "sections/Part_V/DT.tex",
     "tex": "digital-twin-assimilation.tex",
     "pdf": "digital-twin-assimilation.pdf",
-    "source_sha256": "1c553ea0dd4bd716f382fffe9bc53c7a31fd2e0c60bb1c99faee3e53db8e61b5",
-    "pdf_sha256": "36cbc4e4c5f3f029f3067365ce0b44360daca967be98d3d20aac38bfe5706e95"
+    "source_sha256": "22b1904ec5fe494da379eff5ab22152800527ed71b484dfe20fb21ae9d70c76c",
+    "pdf_sha256": "92813a8207f49f6c21edec9adc7854cc6aa4a41549c0eabcdc2a725bc7eb8dfc"
   },
   {
     "label": "fig:slam_loop_closure",
     "book_source": "sections/Part_V/slam.tex",
     "tex": "slam-loop-closure-schematic.tex",
     "pdf": "slam-loop-closure-schematic.pdf",
-    "source_sha256": "e5b39464df9f3011b3f73ab47874627c52c315b49017aa4926ac013b69effbd3",
-    "pdf_sha256": "a6ea39c782ed94b562424c253f2868e63b52deb1b0e081ec03fe99860803caab"
+    "source_sha256": "61f71a37f76ceb4fd91321ecb85e8c0a8bafd1bd3ad487c2b51055df23f239c5",
+    "pdf_sha256": "5ec382728468cca4982d44160a2a1f6f4cc3f91886945b08ddc1c67d89fa9897"
   },
   {
     "label": "fig:graph_slam_factor_graph",
     "book_source": "sections/Part_V/slam.tex",
     "tex": "slam-factor-graph.tex",
     "pdf": "slam-factor-graph.pdf",
-    "source_sha256": "de2113be4ee58685b4a439946ee139770d2bce5750e756602899bde40c612fb5",
-    "pdf_sha256": "60ee2c7f3bd818a87fdd586f3e5a5a91b8d429e149fed1be887bb1f2ca9b03a5"
+    "source_sha256": "e60bb26108ec74097927034b05be095b139c22db555dd43b7393017611e95629",
+    "pdf_sha256": "07b1e547803284056eb68d854f18913968132fc4f27e284e68a6cd4bf5cd9b03"
   },
   {
     "label": "fig:belief_space_geometry",
     "book_source": "sections/Part_V/motion_planning.tex",
     "tex": "belief-space-geometry.tex",
     "pdf": "belief-space-geometry.pdf",
-    "source_sha256": "c85e12c1f8b798989082cd7908e8f48f2a454885486714c594cf7631410f5621",
-    "pdf_sha256": "b3437bc7ea8bca94c64d995561dc9a0a0b8ffbaf42611307d6425a22d59ffdf2"
+    "source_sha256": "f8d9819a2d805595dc82d733b1fdbac3bcfb800aac43cdbde75f6ea227e55a71",
+    "pdf_sha256": "c1790bfab0e0cde83e7707d65cf5b3fb9efa12ecb5f63a16db8a9e606f414e53"
   },
   {
     "label": "fig:explore_exploit",
     "book_source": "sections/Part_V/motion_planning.tex",
     "tex": "exploration-exploitation-schematic.tex",
     "pdf": "exploration-exploitation-schematic.pdf",
-    "source_sha256": "77abadf7d49dfcf5ff68f6f84dda78861bde0869a7e540a3294bdaa8f60479ee",
-    "pdf_sha256": "8d9612e45677ff65748dfb927e88d5ee3b4d13392f79826ce66cb89dbbd3392c"
+    "source_sha256": "6bcd9d03c47ad31befe71395fe31ed557df9c4c5687bfa92d8b78e51914ae636",
+    "pdf_sha256": "e77cd24064889dae7201502c5bbdbfad2b02cbd80a8ad2f48bf7fb25956a3174"
   },
   {
     "label": "fig:mc_exercise",
     "book_source": "sections/appendices/appendixE.tex",
     "tex": "monte-carlo-pi-exercise.tex",
     "pdf": "monte-carlo-pi-exercise.pdf",
-    "source_sha256": "98f7335343e430624063e56e70dbbdef9355b2c2266a561d4c532e887edbca0a",
-    "pdf_sha256": "cceeccdf8d993243c214e22950233f848e6dad95e6a78aea8bccbcd2a09c74c2"
+    "source_sha256": "cb9981a4f6df8f5164dd2ee9168f91a799427da48d4a1b7edc30758df27a5056",
+    "pdf_sha256": "af104030c51d01a3a3ca31eb34523be82fe540eb9943b5623c1ae993928c6c70"
   }
 ]

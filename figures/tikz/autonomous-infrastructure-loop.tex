@@ -15,6 +15,9 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
     >=Latex,
@@ -25,9 +28,9 @@
         text width=2.5cm,
         minimum height=1.15cm,
         align=center,
-        line width=0.8pt,
+        book stroke,
         fill=BookLight,
-        font=\small
+        font=\BookFigureFont
     },
     inference/.style={block, fill=BookBlue!10, text width=3.7cm},
     action/.style={block, draw=BookGold, fill=BookGold!8, text width=3.2cm},
@@ -38,11 +41,11 @@
         text width=3.2cm,
         minimum height=1.15cm,
         align=center,
-        line width=0.8pt,
+        book stroke,
         fill=BookTeal!8,
-        font=\small
+        font=\BookFigureFont
     },
-    arrow/.style={->, draw=BookBlue, line width=0.8pt}
+    arrow/.style={->, draw=BookBlue, book stroke}
 ]
 
 % Top row
@@ -51,7 +54,7 @@
 \node[block] (perception) at (3.2,2)
     {Perception\\{\footnotesize feature\\extraction}};
 \node[inference] (inference) at (7.4,2)
-    {Probabilistic Inference\\{\footnotesize Bayesian\\estimation}};
+    {Probabilistic inference\\{\footnotesize Bayesian\\estimation}};
 
 % Bottom row
 \node[action] (action) at (0,-.7)
@@ -59,7 +62,7 @@
 \node[block] (decision) at (7.4,-.7)
     {Decision\\{\footnotesize risk-aware planning}};
 \node[twin] (twin) at (11.5,-.7)
-    {Digital Twin\\{\footnotesize physics-based models\\+ data assimilation}};
+    {Digital twin\\{\footnotesize physics-based models\\+ data assimilation}};
 
 % Main pipeline
 \draw[arrow] (sense.east) -- (perception.west);

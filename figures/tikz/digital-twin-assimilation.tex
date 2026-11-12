@@ -15,17 +15,20 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
     >=Latex,
-    every node/.style={font=\small, align=center},
+    every node/.style={font=\BookFigureFont, align=center},
     block/.style={
         rectangle,
         rounded corners=2pt,
         draw,
         minimum width=2.8cm,
         minimum height=0.9cm,
-        line width=0.8pt,
+        book stroke,
         fill=BookLight
     },
     stateblock/.style={
@@ -34,7 +37,7 @@
         draw,
         minimum width=3.2cm,
         minimum height=1.1cm,
-        line width=0.8pt,
+        book stroke,
         fill=BookBlue!10
     },
     obsblock/.style={
@@ -43,19 +46,19 @@
         draw,
         minimum width=3.0cm,
         minimum height=1.0cm,
-        line width=0.8pt,
+        book stroke,
         fill=BookTeal!8
     },
-    arrow/.style={->, draw=BookBlue, line width=0.8pt}
+    arrow/.style={->, draw=BookBlue, book stroke}
 ]
 
 % Left column: physical / sensing
 \node[block] (drone) at (0,2.2) {Drone inspection\\mission};
-\node[obsblock] (obs) at (0,0.4) {RGB / Thermal / LiDAR\\observations};
+\node[obsblock] (obs) at (0,0.4) {RGB / Thermal / LiDAR\\Observations};
 \node[block] (vision) at (0,-1.4) {Damage detection\\and feature extraction};
 
 % Right column: twin / state
-\node[stateblock] (state) at (6.2,1.3) {Digital Twin state\\$\vect{x}_k = \{\text{cracks, stiffness, corrosion}\}$};
+\node[stateblock] (state) at (6.2,1.3) {Digital twin state\\$\vect{x}_k = \{\text{cracks, stiffness, corrosion}\}$};
 \node[stateblock] (update) at (6.2,-0.8) {Bayesian update\\$\prob(\vect{x}_k \mid D_{1:k})$};
 \node[block,draw=BookGold,fill=BookGold!8] (risk) at (6.2,-2.8) {Risk / maintenance\\decision support};
 
@@ -65,29 +68,29 @@
 
 % Orthogonal arrow from vision to update
 \draw[arrow] (vision.east) -- ++(1.0,0)
-             |- node[pos=0.55, above, xshift = 0.6cm] {\footnotesize evidence} (update.west);
+             |- node[pos=0.55, above, xshift = 0.6cm] {\footnotesize Evidence} (update.west);
 
 % Arrows in right column
 \draw[arrow] (state) -- (update);
 \draw[arrow] (update) -- (risk);
 
 % Feedback loop: horizontal out, vertical up, horizontal in
-\draw[dashed, draw=BookGold, line width=0.8pt]
+\draw[dashed, draw=BookGold, book stroke]
 (risk.west) -- ([xshift=-7.3cm]risk.west);
 
-\draw[dashed, draw=BookGold, line width=0.8pt]
+\draw[dashed, draw=BookGold, book stroke]
 ([xshift=-7.3cm]risk.west) -- ([xshift=-1.3cm]drone.west);
 
-\draw[arrow, draw=BookGold, dashed, line width=0.8pt]
+\draw[arrow, draw=BookGold, dashed, book stroke]
 ([xshift=-1.3cm]drone.west) -- (drone.west);
 
 % Rotated label centered on vertical segment
-\node[rotate=90, font=\footnotesize]
-at ([xshift=-1.5cm,yshift=-2.5cm]drone.west) {adaptive inspection planning};
+\node[rotate=90, font=\BookNoteFont]
+at ([xshift=-1.5cm,yshift=-2.5cm]drone.west) {Adaptive inspection planning};
 
 % Column notes
-\node[font=\footnotesize] at (0,3.2) {physical system};
-\node[font=\footnotesize] at (6.2,2.5) {digital model};
+\node[font=\BookNoteFont] at (0,3.2) {Physical system};
+\node[font=\BookNoteFont] at (6.2,2.5) {Digital model};
 
 \end{tikzpicture}
 \end{document}

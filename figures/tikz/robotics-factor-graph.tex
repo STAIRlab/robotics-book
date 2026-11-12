@@ -15,14 +15,16 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex,
-    >=Latex,
-    node distance=2.5cm and 1.8cm,
-    pose/.style={circle,draw=BookBlue,fill=white,minimum size=9mm,inner sep=1pt},
-    lmk/.style={rectangle,draw=BookGold,fill=BookLight,minimum width=10mm,minimum height=8mm},
-    fac/.style={rectangle,draw=BookBlue,fill=BookBlue,minimum size=3mm},
-    ftext/.style={font=\scriptsize}
+\begin{tikzpicture}[book figure,
+    node distance=2.0cm and 1.8cm,
+    pose/.style={book pose},
+    lmk/.style={book landmark},
+    fac/.style={book factor},
+    ftext/.style={book note}
 ]
 
 % Poses
@@ -39,32 +41,32 @@
 \node[fac] (f12) at ($(x1)!0.5!(x2)+(0,1.4)$) {};
 
 % Measurement factors (manually positioned)
-\node[fac,draw=BookGold,fill=BookGold] (g01) at ($(x0)!0.5!(m1)$) {};
-\node[fac,draw=BookGold,fill=BookGold] (g11) at ($(x1)!0.5!(m1)$) {};
-\node[fac,draw=BookGold,fill=BookGold] (g12) at ($(x1)!0.5!(m2)$) {};
-\node[fac,draw=BookGold,fill=BookGold] (g22) at ($(x2)!0.5!(m2)$) {};
+\node[book measurement factor] (g01) at ($(x0)!0.5!(m1)$) {};
+\node[book measurement factor] (g11) at ($(x1)!0.5!(m1)$) {};
+\node[book measurement factor] (g12) at ($(x1)!0.5!(m2)$) {};
+\node[book measurement factor] (g22) at ($(x2)!0.5!(m2)$) {};
 
 % Motion factor connections
-\draw (f01) -- (x0);
-\draw (f01) -- (x1);
+\draw[book odometry] (f01) -- (x0);
+\draw[book odometry] (f01) -- (x1);
 \node[ftext, above=1mm of f01] {$u_0$};
 
-\draw (f12) -- (x1);
-\draw (f12) -- (x2);
+\draw[book odometry] (f12) -- (x1);
+\draw[book odometry] (f12) -- (x2);
 \node[ftext, above=1mm of f12] {$u_1$};
 
 % Measurement factor connections
-\draw[BookGold] (g01) -- (x0);
-\draw[BookGold] (g01) -- (m1);
+\draw[book measurement] (g01) -- (x0);
+\draw[book measurement] (g01) -- (m1);
 
-\draw[BookGold] (g11) -- (x1);
-\draw[BookGold] (g11) -- (m1);
+\draw[book measurement] (g11) -- (x1);
+\draw[book measurement] (g11) -- (m1);
 
-\draw[BookGold] (g12) -- (x1);
-\draw[BookGold] (g12) -- (m2);
+\draw[book measurement] (g12) -- (x1);
+\draw[book measurement] (g12) -- (m2);
 
-\draw[BookGold] (g22) -- (x2);
-\draw[BookGold] (g22) -- (m2);
+\draw[book measurement] (g22) -- (x2);
+\draw[book measurement] (g22) -- (m2);
 
 \end{tikzpicture}
 \end{document}

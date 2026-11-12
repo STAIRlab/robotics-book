@@ -15,83 +15,68 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[book figure, x=0.48cm, y=0.65cm,
-    >= {Latex[length=2.8mm,width=1.8mm]},
-    main/.style={rectangle,rounded corners=2pt,draw=none,minimum width=2.8cm,minimum height=1.0cm,font=\small\rmfamily\bfseries,text=white,align=center},
-    sub/.style={rectangle,rounded corners=2pt,draw,minimum width=2.1cm,text width=1.85cm,minimum height=0.8cm,font=\footnotesize\rmfamily,align=center},
-    arrow/.style={-{Latex[length=2.8mm,width=1.8mm]},line width=0.85pt},
-    top link/.style={{Latex[length=2.8mm,width=1.8mm]}-{Latex[length=2.8mm,width=1.8mm]},line width=0.85pt},
-    secondary/.style={arrow,dashed}
+\begin{tikzpicture}[book figure, x=1cm, y=1cm,
+    main/.style={rectangle,rounded corners=2pt,draw=none,text width=2.3cm,minimum height=0.85cm,font=\BookFigureFont\bfseries,text=white,align=center},
+    sub/.style={rectangle,rounded corners=2pt,draw,text width=1.8cm,minimum height=0.8cm,font=\BookNoteFont,align=center,inner sep=3pt},
+    arrow/.style={book link},
+    top link/.style={book link,<->},
+    secondary/.style={book link,dashed}
 ]
-\colorlet{myorange}{BookBlue}
-\colorlet{mygreen}{BookTeal}
-\colorlet{myblue}{BookBlue}
-\colorlet{mypurple}{BookTeal}
-\colorlet{myred}{BookGold}
-
-% Major themes are placed at identical y-coordinates.
-\node[main,fill=myorange] (bayes) at (0,0) {Bayesian\\Inference};
-\node[main,fill=mygreen] (filter) at (8,0) {Filtering\\Methods};
-\node[main,fill=myblue] (prob) at (16,0) {Probabilistic\\Robotics};
-\node[main,fill=mypurple] (slam) at (24,0) {SLAM \&\\Perception};
-\node[main,fill=myred] (plan) at (24,-2.85) {Planning \\\& Control};
-
+% Four aligned themes, with planning downstream of perception.
+\node[main,fill=BookBlue] (bayes) at (-0.3,0) {Bayesian\\inference};
+\node[main,fill=BookTeal] (filter) at (3.6,0) {Filtering\\methods};
+\node[main,fill=BookBlue] (prob) at (7.2,0) {Probabilistic\\robotics};
+\node[main,fill=BookTeal] (slam) at (10.8,0) {SLAM \&\\perception};
+\node[main,fill=BookGold] (plan) at (10.8,-3.7) {Planning\\\& control};
 % Inference and learning.
-\node[sub,draw=myorange] (bayesrule) at (0,-2.45) {Bayes'\\Rule};
-\node[sub,draw=myorange] (pgm) at (0,-4.75) {Probabilistic\\Graphical Models};
-\node[sub,draw=myorange] (hmm) at (-1.55,-6.95) {Hidden\\Markov Models};
-\node[sub,draw=myorange,minimum width=2.5cm,text width=2.3cm] (learn) at (2,-10.2) {Bayesian Learning\\\& Model Selection};
-
-% Filtering methods, including both nonlinear Kalman filters.
-\node[sub,draw=mygreen,fill=mygreen!8] (kf) at (5.6,-3.1) {Kalman\\Filter};
-\node[sub,draw=mygreen,fill=mygreen!8] (ekf) at (10.4,-3.1) {Extended\\Kalman Filter};
-\node[sub,draw=mygreen,fill=mygreen!8] (pf) at (5.6,-5.35) {Particle\\Filter};
-\node[sub,draw=mygreen,fill=mygreen!8] (ukf) at (10.05,-5.35) {Unscented\\Kalman Filter};
-\node[sub,draw=mygreen,fill=mygreen!8] (smc) at (8,-7.65) {Sequential\\Monte Carlo};
-
+\node[sub,draw=BookBlue] (bayesrule) at (-0.3,-1.5) {Bayes' rule};
+\node[sub,draw=BookBlue] (pgm) at (-0.3,-3.0) {Probabilistic\\graphical models};
+\node[sub,draw=BookBlue] (hmm) at (-0.3,-4.5) {Hidden\\Markov models};
+\node[sub,draw=BookBlue] (learn) at (-0.3,-7.6) {Bayesian learning\\\& model selection};
+% Filtering branches use separate routing lanes outside their nodes.
+\node[sub,draw=BookTeal,fill=BookTeal!8] (kf) at (2.25,-1.8) {Kalman filter};
+\node[sub,draw=BookTeal,fill=BookTeal!8] (ekf) at (4.95,-1.8) {Extended\\Kalman filter};
+\node[sub,draw=BookTeal,fill=BookTeal!8] (pf) at (2.25,-4.0) {Particle filter};
+\node[sub,draw=BookTeal,fill=BookTeal!8] (ukf) at (4.95,-4.0) {Unscented\\Kalman filter};
+\node[sub,draw=BookTeal,fill=BookTeal!8] (smc) at (3.6,-5.9) {Sequential\\Monte Carlo};
 % State estimation and perception.
-\node[sub,draw=myblue,fill=myblue!8] (state) at (16,-3.1) {State\\Estimation};
-\node[sub,draw=mypurple,fill=mypurple!8] (map) at (19.9,-4.8) {Mapping \&\\Localization};
-\node[sub,draw=mypurple,fill=mypurple!8,minimum width=2.5cm,text width=2.3cm] (vision) at (29.2,-4.8) {Computer \\ Vision \& \\ Perception};
-
+\node[sub,draw=BookBlue,fill=BookLight] (state) at (7.2,-1.8) {State\\estimation};
+\node[sub,draw=BookTeal,fill=BookTeal!8] (map) at (9.45,-1.8) {Mapping \&\\localization};
+\node[sub,draw=BookTeal,fill=BookTeal!8] (vision) at (12.15,-1.8) {Computer\\vision \&\\perception};
 % Planning and applications.
-\node[sub,draw=myred] (path) at (20.4,-7.8) {Path\\Planning};
-\node[sub,draw=myred,minimum width=2.7cm,text width=2.5cm] (rl) at (28.8,-7.8) {Reinforcement\\Learning};
-\node[sub,draw=myred] (nav) at (29.0,-11.4) {Autonomous\\Navigation};
-\node[sub,draw=myred,fill=myred!8] (dt) at (23.8,-10.2) {Digital\\Twin};
-\node[sub,minimum width=2.5cm,text width=2.3cm] (apps) at (8,-10.2) {Real-World\\Applications};
-
-% Exactly horizontal double-headed conceptual connections.
+\node[sub,draw=BookGold] (path) at (9.2,-5.7) {Path planning};
+\node[sub,draw=BookGold,text width=2.05cm] (rl) at (12.0,-5.7) {Reinforcement\\learning};
+\node[sub,draw=BookGold] (nav) at (12.0,-8.0) {Autonomous\\navigation};
+\node[sub,draw=BookGold,fill=BookGold!8] (dt) at (9.2,-7.6) {Digital twin};
+\node[sub] (apps) at (3.6,-7.6) {Real-world\\applications};
+% Every original connection is retained; explicit anchors terminate at borders.
 \draw[top link] (bayes.east) -- (filter.west);
 \draw[top link] (filter.east) -- (prob.west);
 \draw[top link] (prob.east) -- (slam.west);
-
-% Hierarchical and methodological links.
-\draw[arrow] (bayes) -- (bayesrule);
-\draw[arrow] (bayesrule) -- (pgm);
-\draw[arrow] (pgm) -- (hmm);
-\draw[arrow] (pgm) -- (learn);
-\draw[arrow] (filter) -- (kf);
-\draw[arrow] (filter) -- (ekf);
-\draw[arrow] (filter.south west) -- (3.4,-1.55) -- (3.4,-5.35) -- (pf.west);
-\draw[arrow] (filter.south east) -- (12.8,-1.55) -- (12.8,-5.35) -- (ukf.east);
-\draw[arrow] (pf) -- (smc);
-\draw[arrow] (prob) -- (state);
+\draw[arrow] (bayes.south) -- (bayesrule.north);
+\draw[arrow] (bayesrule.south) -- (pgm.north);
+\draw[arrow] (pgm.south) -- (hmm.north);
+\draw[arrow] (pgm.west) -- (-1.9,-3.0) |- (learn.west);
+\draw[arrow] (filter.south) -- (3.6,-0.85) -| (kf.north);
+\draw[arrow] (filter.south) -- (3.6,-0.85) -| (ekf.north);
+\draw[arrow] (filter.south west) -- (1.125,-0.65) |- (pf.west);
+\draw[arrow] (filter.south east) -- (6.08,-0.65) |- (ukf.east);
+\draw[arrow] (pf.south) -- (2.25,-5.0) -| (smc.north);
+\draw[arrow] (prob.south) -- (state.north);
 \draw[arrow] (slam.south west) -- (map.north);
 \draw[arrow] (slam.south east) -- (vision.north);
 \draw[arrow] (slam.south) -- (plan.north);
-\draw[arrow] (plan.south west) -- (22.6,-4.0) -- (22.6,-6.5) -- (path.north east);
-\draw[arrow] (plan.south east) -- (26.1,-4.0) -- (26.1,-6.5) -- (rl.north west);
-\draw[arrow] (rl) -- (nav);
-
-% Secondary / cross-cutting / application links.
-\draw[secondary] (smc) -- (apps);
+\draw[arrow] (plan.south west) -- (path.north);
+\draw[arrow] (plan.south east) -- (rl.north);
+\draw[arrow] (rl.south) -- (nav.north);
+\draw[secondary] (smc.south) -- (apps.north);
 \draw[secondary] (learn.east) -- (apps.west);
-\draw[secondary] (state.south) -- (16,-7.65) -- (smc.east);
-\draw[secondary] (plan.south) -- (dt.north);
-\draw[secondary] (apps.east) -- (dt.west); % horizontal: matching node center heights
-\end{tikzpicture}%
-}
+\draw[secondary] (state.south) -- (7.2,-5.9) -- (smc.east);
+\draw[secondary] (plan.south) -- (10.8,-7.6) -- (dt.east);
+\draw[secondary] (apps.east) -- (dt.west);
+\end{tikzpicture}
 \end{document}

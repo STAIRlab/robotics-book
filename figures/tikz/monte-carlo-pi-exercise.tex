@@ -15,43 +15,32 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[book figure, scale=6]
-\pgfmathsetseed{42} % fixed seed so the figure is reproducible
-
-% Draw the unit square
-\draw[thick] (0,0) rectangle (1,1);
-
-% Draw the quarter-circle (corrected)
-\fill[BookBlue!8] (0,0) -- (1,0) arc (0:90:1) -- cycle;
-\draw[BookBlue, thick] (1,0) arc (0:90:1);
-
-% Axes labels
-\node[below] at (0.5, 0) {$x$};
-\node[left] at (0, 0.5) {$y$};
-
-% Generate random points inside unit square
+\begin{tikzpicture}[book figure, scale=5]
+\draw[book stroke] (0,0) rectangle (1,1);
+\draw[book axis] (-0.02,0) -- (1.08,0) node[right] {$x$};
+\draw[book axis] (0,-0.02) -- (0,1.08) node[above] {$y$};
+\draw[book curve, BookGold] (1,0) arc[start angle=0,end angle=90,radius=1];
+\pgfmathsetseed{42}
 \foreach \i in {1,...,300} {
-    \pgfmathsetmacro{\x}{rnd}
-    \pgfmathsetmacro{\y}{rnd}
-    \pgfmathsetmacro{\r}{\x*\x + \y*\y}
-    \ifdim \r pt<1pt
-        \fill[BookBlue] (\x,\y) circle (0.0035);
-    \else
-        \fill[BookGold] (\x,\y) circle (0.0035);
-    \fi
+\pgfmathsetmacro{\px}{rnd}
+\pgfmathsetmacro{\py}{rnd}
+\pgfmathtruncatemacro{\inside}{(\px*\px+\py*\py<1) ? 1 : 0}
+\ifnum\inside=1
+\fill[BookBlue] (\px,\py) circle (0.007);
+\else
+\fill[BookInk!60] (\px,\py) circle (0.007);
+\fi
 }
-
-% Label inside the quarter-circle
-%%\node at (0.72,0.72) {\footnotesize $x^2 + y^2 \leq 1$};
-
-\node[
-    fill=white,
-    draw=BookBlue,
-    rounded corners=1pt,
-    inner sep=2pt,
-    font=\footnotesize
-] at (0.48,0.56) {$x^2 + y^2 \leq 1$};
-
+\draw[book curve, BookGold] (1.18,0.95) -- (1.32,0.95);
+\node[anchor=west,book note] at (1.36,0.95) {Quarter circle};
+\fill[BookBlue] (1.25,0.82) circle (0.010);
+\node[anchor=west,book note] at (1.36,0.82) {Inside};
+\fill[BookInk!60] (1.25,0.69) circle (0.010);
+\node[anchor=west,book note] at (1.36,0.69) {Outside};
+\node[anchor=west,book note] at (1.18,0.48) {$x^2+y^2\leq1$};
 \end{tikzpicture}
 \end{document}

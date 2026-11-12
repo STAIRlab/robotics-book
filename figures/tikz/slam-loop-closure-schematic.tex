@@ -15,15 +15,18 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure, scale=1.0]
-    \draw[BookBlue,line width=1.1pt,->] (0,0) -- (2,1) node[right, yshift=-4] {\small Step 1};
-    \draw[BookBlue,line width=1.1pt,->] (2,1) -- (4,2) node[right] {\small Step 2};
-    \draw[BookBlue,line width=1.1pt,->] (4,2) -- (5,0.5) node[right] {\small Step 3};
-    \draw[BookGold,line width=1.1pt,->,dashed] (5,0.5) -- (0,0) node[midway,below, yshift=-1] {\small Loop Closure};
-    \filldraw[fill=white,draw=BookBlue,line width=0.8pt] (0,0) circle (0.05);
-    \filldraw[fill=white,draw=BookBlue,line width=0.8pt] (2,1) circle (0.05);
-    \filldraw[fill=white,draw=BookBlue,line width=0.8pt] (4,2) circle (0.05);
-    \filldraw[fill=white,draw=BookBlue,line width=0.8pt] (5,0.5) circle (0.05);
+    \draw[BookBlue,book curve,->] (0,0) -- (2,1) node[right, yshift=-4] {\small Step 1};
+    \draw[BookBlue,book curve,->] (2,1) -- (4,2) node[right] {\small Step 2};
+    \draw[BookBlue,book curve,->] (4,2) -- (5,0.5) node[right] {\small Step 3};
+    \draw[BookGold,book curve,->,dashed] (5,0.5) -- (0,0) node[midway,below, yshift=-1] {\small Loop closure};
+    \filldraw[fill=white,draw=BookBlue,book stroke] (0,0) circle (0.05);
+    \filldraw[fill=white,draw=BookBlue,book stroke] (2,1) circle (0.05);
+    \filldraw[fill=white,draw=BookBlue,book stroke] (4,2) circle (0.05);
+    \filldraw[fill=white,draw=BookBlue,book stroke] (5,0.5) circle (0.05);
 \end{tikzpicture}
 \end{document}

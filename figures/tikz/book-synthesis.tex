@@ -15,17 +15,20 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
 >=Latex,
-every node/.style={font=\small, align=center},
+every node/.style={font=\BookFigureFont, align=center},
 part/.style={
 rectangle,
 rounded corners=2pt,
 draw,
 minimum width=4.1cm,
 minimum height=1.0cm,
-line width=0.8pt,
+book stroke,
 fill=BookLight
 },
 core/.style={
@@ -34,10 +37,10 @@ rounded corners=2pt,
 draw,
 minimum width=4.4cm,
 minimum height=1.1cm,
-line width=0.9pt,
+book stroke,
 fill=BookBlue!10
 },
-arrow/.style={->, draw=BookBlue, line width=0.8pt}
+arrow/.style={->, draw=BookBlue, book stroke}
 ]
 
 % Left column
@@ -48,10 +51,10 @@ arrow/.style={->, draw=BookBlue, line width=0.8pt}
 \node[part] (p5) at (0,0.7) {Part V\\{\footnotesize Vision, SLAM, digital twins, planning}};
 
 % Right application block
-\node[core] (p6) at (9.1,4.1) {Part VI\\{\footnotesize Autonomous Infrastructure Applications}};
+\node[core] (p6) at (9.1,4.1) {Part VI\\{\footnotesize Autonomous infrastructure applications}};
 
 % Central synthesis node
-\node[core] (core) at (9.1,0.8) {Probabilistic Autonomy for Infrastructure\\{\footnotesize sensing $\rightarrow$ inference $\rightarrow$ decision $\rightarrow$ action}};
+\node[core] (core) at (9.1,0.8) {Probabilistic autonomy for infrastructure\\{\footnotesize sensing $\rightarrow$ inference $\rightarrow$ decision $\rightarrow$ action}};
 
 % Arrows from parts to Part VI
 \draw[arrow] (p1.east) -- ++(0.6,0) |- (p6.west);
@@ -64,10 +67,10 @@ arrow/.style={->, draw=BookBlue, line width=0.8pt}
 \draw[arrow] (p6.south) ++(-1.0,0) -- ([xshift=-1cm]core.north);
 
 % Optional side notes
-\node[font=\footnotesize, align=left] at (4.9,6.3)
+\node[font=\BookNoteFont, align=left] at (4.9,6.3)
 {Bayesian reasoning\\Decision-making\\Learning from data};
 
-\node[font=\footnotesize, align=left] at (10.0,2.45)
+\node[font=\BookNoteFont, align=left] at (10.0,2.45)
 {Robotics\\Inspection\\Monitoring\\Digital twins\\Infrastructure autonomy};
 
 \end{tikzpicture}

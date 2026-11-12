@@ -15,14 +15,16 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
 \begin{tikzpicture}[book figure,
     scale=1.2,
-    transform shape,
     >=Latex,
-    every node/.style={font=\small},
-    axis/.style={->, draw=BookInk, line width=0.6pt},
-    meanline/.style={BookBlue, line width=1.1pt},
+    every node/.style={font=\BookFigureFont},
+    axis/.style={book axis},
+    meanline/.style={BookBlue, book curve},
     band/.style={fill=BookBlue!15, draw=none},
     legendbox/.style={
         draw,
@@ -33,8 +35,8 @@
 ]
 
 % Axes
-\draw[axis] (0,0) -- (6.6,0) node[right] {inspection number};
-\draw[axis] (0,0) -- (0,4.4) node[above] {damage index (normalized)};
+\draw[axis] (0,0) -- (6.6,0) node[right] {Inspection number};
+\draw[axis] (0,0) -- (0,4.4) node[above] {Damage index (normalized)};
 
 % x ticks
 \foreach \x/\lab in {1/1,2/2,3/3,4/4,5/5,6/6}
@@ -98,11 +100,11 @@ coordinates{
 % Legend
 \node[legendbox] at (5.3,3.5)
 {
-\begin{tikzpicture}[every node/.style={font=\footnotesize}]
+\begin{tikzpicture}[book figure, font=\BookNoteFont]
 
 % mean
 \draw[meanline] (0,0) -- (0.9,0);
-\node[right] at (1.0,0) {posterior mean};
+\node[right] at (1.0,0) {Posterior mean};
 
 % band
 \fill[band] (0,-0.6) rectangle (0.9,-0.2);

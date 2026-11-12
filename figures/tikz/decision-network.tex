@@ -15,8 +15,11 @@
 \newcommand{\Prob}{\mathbb{P}}
 \setlength{\textwidth}{6.5in}
 \input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
 \begin{document}
-\begin{tikzpicture}[font=\small, text=BookInk, draw=BookBlue, line width=0.8pt, >=Latex, node distance=2.6cm]
+\begin{tikzpicture}[book figure, node distance=2.6cm]
 
 \node[circle,draw=BookBlue,fill=white,minimum size=9mm] (x) {$\vect{x}$};
 \node[circle,draw=BookGold,fill=BookLight,minimum size=9mm,right of=x] (y) {$\vect{z}$};
