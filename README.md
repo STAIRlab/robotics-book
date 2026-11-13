@@ -4,13 +4,16 @@ Computational examples for **Bayesian Methods for Autonomous Robotics and Intell
 
 The notebooks are organized by topic. Each can be run independently from top to bottom, and some support several chapters. The larger notebooks contain their numerical calculations directly. Short chapter notebooks call the inspectable [chapter_examples.py](robotics_book/chapter_examples.py) implementation and print their computed values. The shared [book.mplstyle](notebooks/book.mplstyle) file controls figure appearance only.
 
+
 ## Contributors and maintainers
 
-- **Fan Hu**, Structural Artificial Intelligence Research Laboratory (STAIRlab), University of California, Berkeley
-- **Khalid M. Mosalam**, Taisei Professor of Civil Engineering, University of California, Berkeley
-- **Ziad Mosalam**, author of the six additional companion notebooks and the visual design of the numerical figures and restyled book diagrams
+- **Fan Hu**, Structural Artificial Intelligence Research Laboratory (STAIRlab), University of California, Berkeley — Developed the six original companion Jupyter notebooks and contributed to the technical review of the book.
 
-The original notebook and diagram credits are retained. Other contributors to the book are acknowledged in the book.
+- **Ziad K. Mosalam**, University of California, Berkeley — Developed additional companion notebooks, reproducible chapter examples, and computational implementations, and contributed to the design, standardization, and improvement of numerical figures and book diagrams.
+
+- **Khalid M. Mosalam**, Taisei Professor of Civil Engineering, University of California, Berkeley — Author of the book; provided scientific direction, technical review, editorial refinements, and subsequent improvements to the computational examples and figures.
+
+The original contributions of Fan Hu and Ziad K. Mosalam are acknowledged throughout the project. Subsequent revisions and contributions are documented in the Git commit history.
 
 ## Setup and use
 
