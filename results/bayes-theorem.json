@@ -3,6 +3,17 @@
   "title": "Three-location posterior",
   "data_status": "synthetic illustration",
   "values": {
+    "prior": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "likelihood": [
+      0.8,
+      0.4,
+      0.1
+    ],
+    "evidence": 0.43333333333333335,
     "posterior": [
       0.6153846153846153,
       0.30769230769230765,
@@ -15,10 +26,21 @@
     3
   ],
   "y": [
-    0.6153846153846153,
-    0.30769230769230765,
-    0.07692307692307691
+    [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    [
+      0.6153846153846153,
+      0.30769230769230765,
+      0.07692307692307691
+    ]
   ],
-  "xlabel": "Location",
-  "ylabel": "Posterior probability"
+  "labels": [
+    "Prior",
+    "Posterior"
+  ],
+  "xlabel": "Candidate robot location",
+  "ylabel": "Probability"
 }

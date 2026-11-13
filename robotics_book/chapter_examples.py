@@ -167,7 +167,7 @@ def run_example(topic, root=None):
     fig, ax = plt.subplots(figsize=(width, 3.4), layout='constrained')
     colors = ['#003262', '#B17A00', '#247C86']
     categories = {
-        'bayes-theorem': ['1', '2', '3'],
+        'bayes-theorem': [r'$L_1$', r'$L_2$', r'$L_3$'],
         'real-time-bayesian-systems': ['Sensing', 'Computation', 'Reporting'],
         'extended-kalman-filter': [r'$x$', r'$y$', 'Heading'],
         'probabilistic-robotics': ['Safe', 'Damaged'],
@@ -226,8 +226,6 @@ def run_example(topic, root=None):
         ax.set_ylim(0, 0.72)
     
     elif categorical and topic != 'real-time-bayesian-systems':
-
-    if categorical and topic != 'real-time-bayesian-systems':
         rows = np.atleast_2d(display_y)
         bar_width = 0.4 / len(rows)
         for i, row in enumerate(rows):
