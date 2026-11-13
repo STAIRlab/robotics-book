@@ -42,9 +42,26 @@ def examples(topic):
         p=np.linspace(0,1,201);evpi=np.minimum(100*p,20)-20*p
         p1=.85*.2/(.85*.2+.1*.8);p2=.85**2*.2/(.85**2*.2+.1**2*.8)
         d.update(values={'posterior_after_one':p1,'posterior_after_two':p2,'EVPI_after_one':20-20*p1,'EVPI_after_two':20-20*p2},x=p,y=evpi,xlabel='Posterior damage probability',ylabel='Expected value of perfect information [loss units]')
-    elif topic=='bayes-theorem':
-        w=np.array([.8,.4,.1]);w/=w.sum()
-        d.update(values={'posterior':w},x=np.arange(1,4),y=w,xlabel='Location',ylabel='Posterior probability')
+    elif topic == 'bayes-theorem':
+        prior = np.array([1/3, 1/3, 1/3])
+        likelihood = np.array([0.8, 0.4, 0.1])
+        
+        evidence = np.sum(prior * likelihood)
+        posterior = prior * likelihood / evidence
+        
+        d.update(
+            values={
+                'prior': prior,
+                'likelihood': likelihood,
+                'evidence': evidence,
+                'posterior': posterior,
+            },
+            x=np.arange(1, 4),
+            y=np.vstack([prior, posterior]),
+            labels=['Prior', 'Posterior'],
+            xlabel='Candidate robot location',
+            ylabel='Probability',
+        )
     elif topic=='bayesian-updating':
         p=.6;history=[p]
         for _ in range(5):p=.9*p/(.9*p+.2*(1-p));history.append(p)
@@ -182,6 +199,34 @@ def run_example(topic, root=None):
         labels = ['Original model', 'Printed observation', 'Updated model']
     categorical = topic in categories
     display_y = y / 1000 if topic == 'bayesian-decision-theory' else y
+    if topic == 'bayes-theorem':
+        prior, posterior = display_y
+        bar_width = 0.20
+        
+        bars_prior = ax.bar(
+            x - bar_width / 2,
+            prior,
+            width=bar_width,
+            color='#A7B4C5',
+            label='Prior',
+        )
+        bars_post = ax.bar(
+            x + bar_width / 2,
+            posterior,
+            width=bar_width,
+            color='#003262',
+            label='Posterior',
+        )
+        
+        for bars in (bars_prior, bars_post):
+            ax.bar_label(
+                bars, fmt='%.3f', padding=3, fontsize=8
+            )
+            
+        ax.set_ylim(0, 0.72)
+    
+    elif categorical and topic != 'real-time-bayesian-systems':
+
     if categorical and topic != 'real-time-bayesian-systems':
         rows = np.atleast_2d(display_y)
         bar_width = 0.4 / len(rows)
