@@ -184,7 +184,7 @@ def run_example(topic, root=None):
     display_y = y / 1000 if topic == 'bayesian-decision-theory' else y
     if categorical and topic != 'real-time-bayesian-systems':
         rows = np.atleast_2d(display_y)
-        bar_width = 0.7 / len(rows)
+        bar_width = 0.4 / len(rows)
         for i, row in enumerate(rows):
             offset = (i - (len(rows) - 1) / 2) * bar_width
             ax.bar(x + offset, row, width=bar_width, color=colors[i],
