@@ -1,0 +1,60 @@
+% Original book diagram: fig:dbn-filtering
+% Book source: sections/Part_III/prob_robotics_foundations.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+    >=Latex,
+    node distance=2.8cm and 1.9cm,
+    every node/.style={font=\BookFigureFont},
+    state/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        minimum size=9.5mm,
+        inner sep=1pt,
+        book stroke
+    },
+    meas/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        fill=BookLight, draw=BookGold,
+        minimum size=9.5mm,
+        inner sep=1pt,
+        book stroke
+    },
+    arrow/.style={->, book stroke}
+]
+
+\node[state] (x1) {$x_{k-1}$};
+\node[state, right=of x1] (x2) {$x_k$};
+\node[state, right=of x2] (x3) {$x_{k+1}$};
+
+\node[meas, below=1.9cm of x1] (y1) {$z_{k-1}$};
+\node[meas, below=1.9cm of x2] (y2) {$z_k$};
+\node[meas, below=1.9cm of x3] (y3) {$z_{k+1}$};
+
+\draw[arrow] (x1) -- (x2);
+\draw[arrow] (x2) -- (x3);
+
+\draw[arrow,draw=BookGold] (x1) -- (y1);
+\draw[arrow,draw=BookGold] (x2) -- (y2);
+\draw[arrow,draw=BookGold] (x3) -- (y3);
+
+\end{tikzpicture}
+\end{document}

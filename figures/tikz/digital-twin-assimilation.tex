@@ -1,0 +1,96 @@
+% Original book diagram: fig:dt_assimilation
+% Book source: sections/Part_V/DT.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+    >=Latex,
+    every node/.style={font=\BookFigureFont, align=center},
+    block/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw,
+        minimum width=2.8cm,
+        minimum height=0.9cm,
+        book stroke,
+        fill=BookLight
+    },
+    stateblock/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw,
+        minimum width=3.2cm,
+        minimum height=1.1cm,
+        book stroke,
+        fill=BookBlue!10
+    },
+    obsblock/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw,
+        minimum width=3.0cm,
+        minimum height=1.0cm,
+        book stroke,
+        fill=BookTeal!8
+    },
+    arrow/.style={->, draw=BookBlue, book stroke}
+]
+
+% Left column: physical / sensing
+\node[block] (drone) at (0,2.2) {Drone inspection\\mission};
+\node[obsblock] (obs) at (0,0.4) {RGB / Thermal / LiDAR\\Observations};
+\node[block] (vision) at (0,-1.4) {Damage detection\\and feature extraction};
+
+% Right column: twin / state
+\node[stateblock] (state) at (6.2,1.3) {Digital twin state\\$\vect{x}_k = \{\text{cracks, stiffness, corrosion}\}$};
+\node[stateblock] (update) at (6.2,-0.8) {Bayesian update\\$\prob(\vect{x}_k \mid D_{1:k})$};
+\node[block,draw=BookGold,fill=BookGold!8] (risk) at (6.2,-2.8) {Risk / maintenance\\decision support};
+
+% Arrows in left column
+\draw[arrow] (drone) -- (obs);
+\draw[arrow] (obs) -- (vision);
+
+% Orthogonal arrow from vision to update
+\draw[arrow] (vision.east) -- ++(1.0,0)
+             |- node[pos=0.55, above, xshift = 0.6cm] {\footnotesize Evidence} (update.west);
+
+% Arrows in right column
+\draw[arrow] (state) -- (update);
+\draw[arrow] (update) -- (risk);
+
+% Feedback loop: horizontal out, vertical up, horizontal in
+\draw[dashed, draw=BookGold, book stroke]
+(risk.west) -- ([xshift=-7.3cm]risk.west);
+
+\draw[dashed, draw=BookGold, book stroke]
+([xshift=-7.3cm]risk.west) -- ([xshift=-1.3cm]drone.west);
+
+\draw[arrow, draw=BookGold, dashed, book stroke]
+([xshift=-1.3cm]drone.west) -- (drone.west);
+
+% Rotated label centered on vertical segment
+\node[rotate=90, font=\BookNoteFont]
+at ([xshift=-1.5cm,yshift=-2.5cm]drone.west) {Adaptive inspection planning};
+
+% Column notes
+\node[font=\BookNoteFont] at (0,3.2) {Physical system};
+\node[font=\BookNoteFont] at (6.2,2.5) {Digital model};
+
+\end{tikzpicture}
+\end{document}

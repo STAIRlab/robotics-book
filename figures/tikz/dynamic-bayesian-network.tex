@@ -1,0 +1,59 @@
+% Original book diagram: fig:dbn_pgm
+% Book source: sections/Part_IV/probablistic_graphics.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+    >=Latex,
+    every node/.style={font=\BookFigureFont},
+    state/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        minimum size=9.5mm,
+        inner sep=1pt,
+        book stroke
+    },
+    obs/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        fill=BookLight, draw=BookGold,
+        minimum size=9.5mm,
+        inner sep=1pt,
+        book stroke
+    },
+    arrow/.style={->, book stroke}
+]
+
+\node[state] (x1) at (0,0) {$x_{t-1}$};
+\node[state] (x2) at (2.4,0) {$x_t$};
+\node[state] (x3) at (4.8,0) {$x_{t+1}$};
+
+\node[obs] (y1) at (0,-1.8) {$z_{t-1}$};
+\node[obs] (y2) at (2.4,-1.8) {$z_t$};
+\node[obs] (y3) at (4.8,-1.8) {$z_{t+1}$};
+
+\draw[arrow] (x1) -- (x2);
+\draw[arrow] (x2) -- (x3);
+
+\draw[arrow,draw=BookGold] (x1) -- (y1);
+\draw[arrow,draw=BookGold] (x2) -- (y2);
+\draw[arrow,draw=BookGold] (x3) -- (y3);
+
+\end{tikzpicture}
+\end{document}

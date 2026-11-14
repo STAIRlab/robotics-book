@@ -1,0 +1,137 @@
+% Original book diagram: fig:roadmap
+% Book source: sections/front/introduction.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+node distance=12mm and 20mm,
+>=Latex,
+concept/.style={
+draw,
+rounded corners=2pt,
+align=center,
+minimum width=32mm,
+minimum height=9mm,
+font=\BookFigureFont,
+fill=BookLight
+},
+core/.style={
+draw,
+rounded corners=2pt,
+align=center,
+minimum width=36mm,
+minimum height=10mm,
+font=\BookFigureFont\bfseries,
+fill=BookBlue!12
+},
+app/.style={
+draw,
+rounded corners=2pt,
+align=center,
+minimum width=30mm,
+minimum height=9mm,
+font=\BookFigureFont,
+fill=BookGold!8
+},
+line/.style={->, draw=BookBlue, book stroke}
+]
+
+%------------------------------------------------
+% Foundations
+%------------------------------------------------
+
+\node[concept] (prob) {Probability theory\\Random variables};
+
+\node[core, below=of prob] (bayes) {Bayes' theorem};
+
+\node[concept, below left=of bayes] (infer) {Bayesian\\inference};
+\node[concept, below right=of bayes] (predict) {Bayesian\\prediction};
+
+%------------------------------------------------
+% Sequential estimation
+%------------------------------------------------
+
+\node[core, below=18mm of bayes] (seq) {Sequential Bayesian\\estimation};
+
+\node[concept, below left=of seq] (kf) {Kalman\\filters};
+\node[concept, below=of seq] (pf) {Particle\\filters};
+\node[concept, below right=of seq] (hmm) {Hidden Markov\\models};
+
+%------------------------------------------------
+% Monte Carlo
+%------------------------------------------------
+
+\node[core, below=18mm of pf] (mc) {Monte Carlo methods};
+
+\node[concept, below left=of mc] (is) {Importance\\sampling};
+\node[concept, below right=of mc] (mcmc) {Markov chain\\Monte Carlo};
+
+%------------------------------------------------
+% Decision
+%------------------------------------------------
+
+\node[core, below=18mm of mc] (decision) {Bayesian decision theory};
+
+\node[concept, below=of decision] (opt) {Optimal decisions\\under uncertainty};
+
+%------------------------------------------------
+% Applications
+%------------------------------------------------
+
+\node[app, left=of opt] (loc) {Robot\\localization};
+
+\node[app, below left=of opt] (slam) {SLAM};
+
+\node[app, below right=of opt] (plan) {Risk-aware\\planning};
+
+\node[app, right=of opt] (dt) {Digital twins\\for infrastructure};
+
+%------------------------------------------------
+% Arrows
+%------------------------------------------------
+
+\draw[line] (prob) -- (bayes);
+
+\draw[line] (bayes) -- (infer);
+\draw[line] (bayes) -- (predict);
+
+\draw[line] (infer) -- (seq);
+\draw[line] (predict) -- (seq);
+
+\draw[line] (seq) -- (kf);
+\draw[line] (seq) -- (pf);
+\draw[line] (seq) -- (hmm);
+
+\draw[line] (kf) -- (mc);
+\draw[line] (pf) -- (mc);
+\draw[line] (hmm) -- (mc);
+
+\draw[line] (mc) -- (is);
+\draw[line] (mc) -- (mcmc);
+
+\draw[line] (mc) -- (decision);
+\draw[line] (decision) -- (opt);
+
+\draw[line] (opt) -- (loc);
+\draw[line] (opt) -- (slam);
+\draw[line] (opt) -- (plan);
+\draw[line] (opt) -- (dt);
+
+\end{tikzpicture}
+\end{document}

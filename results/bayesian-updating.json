@@ -1,0 +1,35 @@
+{
+  "topic": "bayesian-updating",
+  "title": "Repeated independent detections",
+  "data_status": "synthetic illustration",
+  "values": {
+    "positive_updates": [
+      0.6,
+      0.8709677419354838,
+      0.9681274900398406,
+      0.9927371765773944,
+      0.9983768704032462,
+      0.9996388486042063
+    ],
+    "correlated_two": 0.7142857142857143,
+    "incorrect_independence": 0.8727272727272728
+  },
+  "x": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "y": [
+    0.6,
+    0.8709677419354838,
+    0.9681274900398406,
+    0.9927371765773944,
+    0.9983768704032462,
+    0.9996388486042063
+  ],
+  "xlabel": "Conditionally independent positive detections",
+  "ylabel": "Posterior probability"
+}

@@ -1,0 +1,54 @@
+% Original book diagram: fig:bayes-prediction-illustration
+% Book source: sections/Part_I/bayesian_prediction.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure, scale=1.0]
+% Calibrated to the example: mean 1.2t, standard deviation 0.15t^2 (sigma_a = 0.3 m/s^2)
+% shaded band: mean +/- 2 standard deviations
+\fill[BookLight, domain=0:2.5, samples=60]
+plot (\x, {1.2*\x + 0.3*\x*\x})
+-- plot[domain=2.5:0] (\x, {1.2*\x - 0.3*\x*\x})
+-- cycle;
+
+% axes and ticks
+\draw[book axis] (0,0) -- (3.0,0) node[right] {Time $t$ (s)};
+\draw[book axis] (0,0) -- (0,5.2) node[above] {Position $x$ (m)};
+\foreach \t in {1,2} \draw (\t,0.06) -- (\t,-0.06) node[below] {\small $\t$};
+\foreach \y in {1,2,3,4} \draw (0.06,\y) -- (-0.06,\y) node[left] {\small $\y$};
+
+% mean trajectory
+\draw[BookBlue, book curve, domain=0:2.5, samples=60]
+plot (\x, {1.2*\x});
+
+% one possible trajectory (constant acceleration a = +sigma_a)
+\draw[BookGold, dashed, book curve, domain=0:2.5, samples=60]
+plot (\x, {1.2*\x + 0.15*\x*\x});
+
+% prediction horizon
+\draw[dashed, BookInk!60] (2,0) -- (2,3.6);
+
+% legend
+\begin{scope}[shift={(3.4,3.2)}]
+\draw[BookBlue, book curve] (0,1.2) -- (0.5,1.2); \node[right] at (0.55,1.2) {\small Mean prediction};
+\draw[BookGold, dashed, book curve] (0,0.6) -- (0.5,0.6); \node[right] at (0.55,0.6) {\small Trajectory with $a=\sigma_a$};
+\fill[BookLight] (0,-0.12) rectangle (0.5,0.12); \draw (0,-0.12) rectangle (0.5,0.12); \node[right] at (0.55,0) {\small Mean $\pm 2$ std.\ dev.};
+\end{scope}
+\end{tikzpicture}
+\end{document}
