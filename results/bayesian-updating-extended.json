@@ -1,0 +1,33 @@
+{
+  "stop_sign": {
+    "prior": 0.6,
+    "first_positive": 0.8709677419354838,
+    "second_positive": 0.9681274900398406,
+    "second_negative": 0.45762711864406747,
+    "five_positive_correct": [
+      0.6,
+      0.8709677419354838,
+      0.9681274900398406,
+      0.9927371765773944,
+      0.9983768704032462,
+      0.9996388486042063
+    ],
+    "five_positive_biased": [
+      0.6,
+      0.9642857142857143,
+      0.997946611909651,
+      0.9998857012229969,
+      0.9999936493824024,
+      0.999999647185795
+    ]
+  },
+  "correlated_damage": {
+    "specified_joint_likelihoods": 0.7142857142857143,
+    "incorrect_independence": 0.8727272727272728
+  },
+  "figures": [
+    "bayesian-updating-sequences.pdf",
+    "bayesian-updating-bias.pdf",
+    "bayesian-updating-correlation.pdf"
+  ]
+}
