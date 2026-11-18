@@ -305,7 +305,7 @@ def realtime_latency(root=None):
         a.set_xlim(-.02,6.10);a.set_ylim(-.43,.81)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
         a.set_yticks([]);a.set_xticks(range(6));a.grid(axis="x",alpha=.1)
-        a.spines["left"].set_visible(False)
+        a.spines["left"].set_visible(True)
         b.set_title("(b)  Delays and deadline misses",fontsize=15.2,
                     weight="bold",pad=12)
         b.axvspan(43.5,49.5,color=GOLD,alpha=.27,zorder=0)
