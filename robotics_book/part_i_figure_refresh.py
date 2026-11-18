@@ -293,10 +293,11 @@ def realtime_latency(root=None):
             label.set_clip_path(rect)
         a.axvline(4,color=RED,ls="--",lw=2,zorder=4)
         a.axvline(5,color=BLUE,ls=":",lw=1.8,zorder=3)
-        a.text(3.78,.145,"Deadline 4 ms",color=RED,
-               ha="right",va="bottom",rotation=90,fontsize=11.7,weight="bold")
-        a.text(4.47,.145,"4.3 ms",ha="right",va="bottom",
-               rotation=90,fontsize=12.2)
+        a.text(3.94,.14,"Deadline\n4 ms",color=RED,
+               ha="left",va="bottom",rotation=90,fontsize=10.1,
+               weight="bold",linespacing=1.1)
+        a.text(4.87,.14,"4.3 ms",ha="left",va="bottom",
+               rotation=90,fontsize=10.7)
         a.set_xlim(-.02,5.2);a.set_ylim(-.43,.56)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
         a.set_yticks([]);a.set_xticks(range(6));a.grid(axis="x",alpha=.1)
