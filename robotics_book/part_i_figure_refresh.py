@@ -293,15 +293,15 @@ def realtime_latency(root=None):
                   rotation=90 if word in ("Report","Sensing") else 0,zorder=3)
             label.set_clip_path(rect)
         a.axvline(4.0,color=RED,ls="--",lw=2.0,zorder=4)
-        a.axvline(4.3,color=BLUE,ls=":",lw=2.1,zorder=4)
-        a.axvline(5.0,color="#64748B",ls="-.",lw=1.9,zorder=4)
+        a.axvline(4.3,color="#247C59",ls=":",lw=2.1,zorder=4)
+        a.axvline(5.0,color=BLUE,ls="-",lw=1.8,zorder=4)
         a.text(4.22,.16,"Deadline 4 ms",color=RED,
                ha="left",va="bottom",rotation=90,fontsize=9.8,
                weight="bold")
-        a.text(4.54,.16,"Total latency 4.3 ms",color=BLUE,
+        a.text(4.54,.16,"Total latency 4.3 ms",color="#247C59",
                ha="left",va="bottom",rotation=90,fontsize=9.8,weight="bold")
-        a.text(5.22,.14,"Sampling period 5 ms",color="#536477",
-               ha="center",va="bottom",rotation=90,fontsize=9.8,weight="bold")
+        a.text(5.22,.16,"Sampling period 5 ms",color=BLUE,
+               ha="left",va="bottom",rotation=90,fontsize=9.8,weight="bold")
         a.set_xlim(-.02,6.10);a.set_ylim(-.43,.81)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
         a.set_yticks([]);a.set_xticks(range(6));a.grid(axis="x",alpha=.1)
