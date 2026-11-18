@@ -283,13 +283,14 @@ def realtime_latency(root=None):
         for start,width,word,val,col,fs in [
             (0,.8,"Sensing","0.8 ms","#B4D0E5",9.0),
             (.8,2.5,"Computation","2.5 ms","#F0D18C",11.4),
-            (3.3,1.,"Report","1.0 ms","#CDE4C5",8.5)]:
+            (3.3,1.,"Report","1.0 ms","#CDE4C5",10.7)]:
             rect=Rectangle((start,-.17),width,.27,facecolor=col,
                            edgecolor=BLUE,lw=1.35,zorder=2)
             a.add_patch(rect)
-            label=a.text((3.64 if word=="Report" else start+width*.5),-.035,
+            label=a.text((3.73 if word=="Report" else start+width*.5),-.035,
                   word+"\n"+val,fontsize=fs,weight="bold",ha="center",
-                  va="center",linespacing=1.18,zorder=3)
+                  va="center",linespacing=1.18,
+                  rotation=90 if word=="Report" else 0,zorder=3)
             label.set_clip_path(rect)
         a.axvline(4.0,color=RED,ls="--",lw=2.0,zorder=4)
         a.axvline(4.3,color=BLUE,ls=":",lw=2.1,zorder=4)
