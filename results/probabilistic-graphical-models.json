@@ -1,0 +1,29 @@
+{
+  "topic": "probabilistic-graphical-models",
+  "title": "Exact enumeration on a chain",
+  "data_status": "synthetic illustration",
+  "values": {
+    "evidence": 0.404,
+    "A1_given_C1": 0.5495049504950494
+  },
+  "x": [
+    0,
+    1
+  ],
+  "y": [
+    [
+      0.7,
+      0.3
+    ],
+    [
+      0.45049504950495045,
+      0.5495049504950494
+    ]
+  ],
+  "labels": [
+    "Prior",
+    "After C=1"
+  ],
+  "xlabel": "A state",
+  "ylabel": "Probability"
+}

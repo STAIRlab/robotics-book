@@ -1,0 +1,58 @@
+{
+  "topic": "infrastructure-applications",
+  "title": "Recomputation of the printed modal-period table",
+  "data_status": "recomputation of published manuscript table; raw field measurements not supplied",
+  "values": {
+    "period_discrepancy_percent": [
+      21.818181818181817,
+      16.41791044776119,
+      -3.4090909090909123
+    ],
+    "equivalent_stiffness_ratio": [
+      0.6738694586767655,
+      0.737836949375411,
+      1.0718339100346024
+    ],
+    "common_factor_mean": 1.0638022299808536,
+    "common_factor_variance": 0.001407816195517513,
+    "updated_periods": [
+      0.5850912264894695,
+      0.712747494087172,
+      0.9361459623831512
+    ],
+    "residuals": [
+      0.0849087735105305,
+      0.06725250591282805,
+      -0.0861459623831512
+    ]
+  },
+  "x": [
+    1,
+    2,
+    3
+  ],
+  "y": [
+    [
+      0.55,
+      0.67,
+      0.88
+    ],
+    [
+      0.67,
+      0.78,
+      0.85
+    ],
+    [
+      0.5850912264894695,
+      0.712747494087172,
+      0.9361459623831512
+    ]
+  ],
+  "labels": [
+    "Model",
+    "Printed observation",
+    "Updated common factor"
+  ],
+  "xlabel": "Mode index (NS, EW, torsion)",
+  "ylabel": "Period [s]"
+}

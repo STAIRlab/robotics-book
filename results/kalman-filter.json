@@ -1,0 +1,33 @@
+{
+  "topic": "kalman-filter",
+  "title": "Sequential position updates",
+  "data_status": "synthetic illustration",
+  "values": {
+    "means": [
+      0.0,
+      1.1411764705882352,
+      2.0670391061452515
+    ],
+    "variances": [
+      1.0,
+      0.35294117647058815,
+      0.2625698324022346
+    ],
+    "gps_update": [
+      5.142857142857143,
+      0.14285714285714285
+    ]
+  },
+  "x": [
+    0,
+    1,
+    2
+  ],
+  "y": [
+    1.0,
+    0.35294117647058815,
+    0.2625698324022346
+  ],
+  "xlabel": "Update count",
+  "ylabel": "Posterior variance"
+}

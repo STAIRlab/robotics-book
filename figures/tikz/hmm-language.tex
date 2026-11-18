@@ -1,0 +1,69 @@
+% Original book diagram: fig:pos_hmm_example
+% Book source: sections/Part_III/hmm.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+    >=Latex,
+    node distance=2.8cm and 2cm,
+    every node/.style={font=\BookFigureFont},
+    state/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        minimum size=9mm,
+        inner sep=1pt,
+        book stroke
+    },
+    obs/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw=BookBlue, fill=white,
+        fill=BookLight, draw=BookGold,
+        minimum width=1.8cm,
+        minimum height=7mm,
+        align=center
+    },
+    arrow/.style={->, book stroke}
+]
+
+% Hidden states
+\node[state] (D) {D};
+\node[state, right=of D] (N) {N};
+\node[state, right=of N] (V) {V};
+
+% Observations
+\node[obs, below=1.6cm of D] (w1) {The};
+\node[obs, below=1.6cm of N] (w2) {robot};
+\node[obs, below=1.6cm of V] (w3) {moves};
+
+% State transitions
+\draw[arrow] (D) -- (N);
+\draw[arrow] (N) -- (V);
+
+% Emissions
+\draw[arrow,draw=BookGold] (D) -- (w1);
+\draw[arrow,draw=BookGold] (N) -- (w2);
+\draw[arrow,draw=BookGold] (V) -- (w3);
+
+% Labels
+\node[left=10mm of D] {\footnotesize Hidden states};
+\node[left=10mm of w1] {\footnotesize Observations};
+
+\end{tikzpicture}
+\end{document}

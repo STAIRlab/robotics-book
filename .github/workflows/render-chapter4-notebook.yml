@@ -1,0 +1,49 @@
+name: Render Chapter 4 notebook and figures
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - book-figure-revision
+    paths:
+      - .github/workflows/render-chapter4-notebook.yml
+      - notebooks/bayesian-inference.ipynb
+      - robotics_book/chapter_examples.py
+      - notebooks/book.mplstyle
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out working branch
+        uses: actions/checkout@v4
+        with:
+          ref: book-figure-revision
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install notebook dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install nbconvert ipykernel
+      - name: Execute and save notebook outputs
+        run: |
+          python -m jupyter nbconvert --to notebook --execute --inplace \
+            --ExecutePreprocessor.timeout=180 notebooks/bayesian-inference.ipynb
+      - name: Commit executed notebook and exported figures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add notebooks/bayesian-inference.ipynb
+          git add figures/bayesian-inference.pdf figures/bayesian-inference.png
+          git add figures/bayesian-inference-three-densities.pdf figures/bayesian-inference-three-densities.png
+          git add figures/bayesian-inference-map-mmse.pdf figures/bayesian-inference-map-mmse.png
+          git add results/bayesian-inference.json results/bayesian-inference-extended.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Save executed Chapter 4 notebook and scientific figures"
+            git push origin HEAD:book-figure-revision
+          fi

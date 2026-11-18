@@ -1,0 +1,66 @@
+% Original book diagram: fig:hmm_damage_example
+% Book source: sections/Part_III/hmm.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+    >=Latex,
+    node distance=2.9cm and 1.9cm,
+    every node/.style={font=\BookFigureFont},
+    state/.style={
+        circle,
+        draw=BookBlue, fill=white,
+        minimum size=10mm,
+        inner sep=1pt,
+        book stroke
+    },
+    obs/.style={
+        rectangle,
+        rounded corners=2pt,
+        draw=BookBlue, fill=white,
+        fill=BookLight, draw=BookGold,
+        minimum width=2.7cm,
+        minimum height=7.5mm,
+        align=center,
+        book stroke
+    },
+    arrow/.style={->, book stroke}
+]
+
+\node[state] (s1) {E};
+\node[state, right=of s1] (s2) {Y};
+\node[state, right=of s2] (s3) {D};
+
+\node[obs, below=1.7cm of s1] (o1) {Small\\drift};
+\node[obs, below=1.7cm of s2] (o2) {Moderate\\drift};
+\node[obs, below=1.7cm of s3] (o3) {Large residual\\drift};
+
+\draw[arrow] (s1) -- (s2);
+\draw[arrow] (s2) -- (s3);
+
+\draw[arrow,draw=BookGold] (s1) -- (o1);
+\draw[arrow,draw=BookGold] (s2) -- (o2);
+\draw[arrow,draw=BookGold] (s3) -- (o3);
+
+\node[left=9mm of s1] {\footnotesize Hidden states};
+
+\node[left=2mm of o1] {\footnotesize Observations};
+
+\end{tikzpicture}
+\end{document}

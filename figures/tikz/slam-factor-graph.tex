@@ -1,0 +1,86 @@
+% Original book diagram: fig:graph_slam_factor_graph
+% Book source: sections/Part_V/slam.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+    pose/.style={book pose},
+    landmark/.style={book landmark},
+    factoro/.style={book factor},
+    factorm/.style={book measurement factor},
+    meas/.style={book measurement},
+    odo/.style={book odometry},
+    legendbox/.style={draw=BookInk!30,rounded corners=2pt,fill=white,inner sep=6pt}
+]
+
+%------------------------------------------------
+% Main factor graph
+%------------------------------------------------
+
+% Poses
+\node[pose] (x1) at (0,0) {$\vect{x}_1$};
+\node[pose] (x2) at (2.2,0) {$\vect{x}_2$};
+\node[pose] (x3) at (4.4,0) {$\vect{x}_3$};
+
+% Landmarks
+\node[landmark] (m1) at (1.1,-1.8) {$\vect{m}_1$};
+\node[landmark] (m2) at (3.3,-1.8) {$\vect{m}_2$};
+
+% Odometry factors
+\node[factoro] (f12) at (1.1,0) {};
+\node[factoro] (f23) at (3.3,0) {};
+
+% Measurement factors
+\node[factorm] (g11) at (0.55,-0.9) {};
+\node[factorm] (g21) at (1.65,-0.9) {};
+\node[factorm] (g22) at (2.75,-0.9) {};
+\node[factorm] (g32) at (3.85,-0.9) {};
+
+% Connections: odometry
+\draw[odo] (x1) -- (f12) -- (x2);
+\draw[odo] (x2) -- (f23) -- (x3);
+
+% Connections: landmark observations
+\draw[meas] (x1) -- (g11) -- (m1);
+\draw[meas] (x2) -- (g21) -- (m1);
+\draw[meas] (x2) -- (g22) -- (m2);
+\draw[meas] (x3) -- (g32) -- (m2);
+
+%------------------------------------------------
+% Legend in rounded box
+%------------------------------------------------
+
+
+\node[legendbox,anchor=north] at (2.2,-2.6) {
+\begin{tikzpicture}[book figure,sharp corners,anchor=center,every node/.style={font=\BookNoteFont,anchor=center},x=1cm,y=1cm]
+    \node[pose,minimum size=5mm] at (0,0) {};
+    \node[anchor=west] at (0.45,0) {Robot pose};
+    \node[landmark,minimum width=5mm,minimum height=4mm] at (0,-0.6) {};
+    \node[anchor=west] at (0.45,-0.6) {Landmark};
+    \draw[odo] (3.0,0) -- (3.6,0);
+    \node[factoro] at (3.3,0) {};
+    \node[anchor=west] at (3.8,0) {Odometry factor};
+    \draw[meas] (3.0,-0.6) -- (3.6,-0.6);
+    \node[factorm] at (3.3,-0.6) {};
+    \node[anchor=west] at (3.8,-0.6) {Landmark-observation factor};
+\end{tikzpicture}
+};
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,54 @@
+% Original book diagram: fig:graph_models
+% Book source: sections/Part_IV/probablistic_graphics.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure,
+        >=Latex,
+        every node/.style={draw=BookBlue,fill=white,circle,minimum size=8mm,inner sep=0pt},
+        title/.style={draw=none,fill=none,rectangle,minimum size=0pt,font=\BookFigureFont}
+    ]
+
+    % -------------------------
+    % Directed model
+    % -------------------------
+    \node (x1) at (0,1.2) {$x_1$};
+    \node (x2) at (2,1.2) {$x_2$};
+    \node (x3) at (1,0) {$x_3$};
+
+    \draw[->,book stroke] (x1) -- (x3);
+    \draw[->,book stroke] (x2) -- (x3);
+
+    \node[title] at (1,2.0) {Directed};
+
+    % -------------------------
+    % Undirected model
+    % -------------------------
+    \node (u1) at (5.2,1.2) {$x_1$};
+    \node (u2) at (7.2,1.2) {$x_2$};
+    \node (u3) at (6.2,0) {$x_3$};
+
+    \draw[book stroke] (u1) -- (u2);
+    \draw[book stroke] (u2) -- (u3);
+    \draw[book stroke] (u1) -- (u3);
+
+    \node[title] at (6.2,2.0) {Undirected clique};
+
+    \end{tikzpicture}
+\end{document}

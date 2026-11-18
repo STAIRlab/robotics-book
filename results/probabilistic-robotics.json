@@ -1,0 +1,35 @@
+{
+  "topic": "probabilistic-robotics",
+  "title": "Discrete condition-state Bayes filter",
+  "data_status": "synthetic illustration",
+  "values": {
+    "predicted": [
+      0.645,
+      0.355
+    ],
+    "posterior": [
+      0.2541037426132633,
+      0.7458962573867367
+    ]
+  },
+  "x": [
+    0,
+    1
+  ],
+  "y": [
+    [
+      0.645,
+      0.355
+    ],
+    [
+      0.2541037426132633,
+      0.7458962573867367
+    ]
+  ],
+  "labels": [
+    "Prediction",
+    "After alarm"
+  ],
+  "xlabel": "State (safe=0, damaged=1)",
+  "ylabel": "Probability"
+}

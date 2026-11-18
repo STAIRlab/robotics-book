@@ -1,0 +1,35 @@
+% Original book diagram: fig:decision-network
+% Book source: sections/Part_II/bayesian_decision_theory.tex
+% Original diagram authorship retained. Visual design: Ziad Mosalam.
+\documentclass[11pt,border=8pt]{standalone}
+\usepackage{amsmath,amssymb,graphicx,tikz}
+\usetikzlibrary{arrows.meta,automata,positioning,calc,shapes.geometric,fit,backgrounds,patterns}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\Normal}{\mathcal{N}}
+\newcommand{\prob}{p}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\CovP}{\mathbf{P}}
+\newcommand{\Prob}{\mathbb{P}}
+\setlength{\textwidth}{6.5in}
+\input{book-figure-style}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\begin{document}
+\begin{tikzpicture}[book figure, node distance=2.6cm]
+
+\node[circle,draw=BookBlue,fill=white,minimum size=9mm] (x) {$\vect{x}$};
+\node[circle,draw=BookGold,fill=BookLight,minimum size=9mm,right of=x] (y) {$\vect{z}$};
+\node[rectangle,draw=BookTeal,fill=BookTeal!5,minimum size=9mm,below of=y] (a) {$a$};
+\node[diamond,draw=BookGold,fill=BookGold!6,minimum size=11mm,below of=x] (u) {$U$};
+
+\draw[->] (x) -- (y);
+\draw[->] (x) -- (u);
+\draw[->] (a) -- (u);
+\draw[->] (y) -- (a);
+
+\end{tikzpicture}
+\end{document}
