@@ -298,9 +298,9 @@ def realtime_latency(root=None):
         a.text(3.79,.16,"Deadline 4 ms",color=RED,
                ha="left",va="bottom",rotation=90,fontsize=9.8,
                weight="bold")
-        a.text(4.49,.105,"Total latency 4.3 ms",color="#247C59",
+        a.text(4.39,.105,"Total latency 4.3 ms",color="#247C59",
                ha="left",va="bottom",rotation=90,fontsize=9.8,weight="bold")
-        a.text(5.17,.105,"Sampling period 5 ms",color=BLUE,
+        a.text(5.08,.105,"Sampling period 5 ms",color=BLUE,
                ha="left",va="bottom",rotation=90,fontsize=9.8,weight="bold")
         a.set_xlim(-.02,6.10);a.set_ylim(-.43,.81)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
