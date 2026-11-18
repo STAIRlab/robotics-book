@@ -52,6 +52,52 @@ def bayes_theorem(root=None):
     fig.subplots_adjust(left=.065,right=.99,top=.85,bottom=.22,wspace=.36)
     return save(fig,"JNB2-bayes-theorem",root)
 
+
+def updating_integrated(root=None):
+    """Chapter 3: one coherent chart showing report alternatives and model bias.
+
+    All three trajectories are exact synthetic Bayes calculations. A negative
+    second report is an alternative to a second positive, not a third report.
+    """
+    style()
+    def update(p, positive, fpr=.20):
+        a=.90 if positive else .10
+        b=fpr if positive else 1-fpr
+        return a*p/(a*p+b*(1-p))
+    def history(fpr):
+        vals=[.60]
+        for _ in range(5):
+            vals.append(update(vals[-1], True, fpr))
+        return np.array(vals)
+    correct=history(.20)
+    optimistic=history(.05)
+    negative_second=update(correct[1], False, .20)
+    assert np.isclose(correct[1], .54/.62)
+    assert np.isclose(negative_second, .054/(.054+.064))
+    assert np.isclose(correct[2], .486/(.486+.016))
+    fig, ax=plt.subplots(figsize=(8.4,4.65))
+    ax.axvspan(1.78,2.22,color="#DCE7F0",alpha=.56,zorder=0)
+    ax.plot(range(6),correct,color=BLUE,lw=3.0,marker="o",ms=8.6,
+        label="Specified sensor model: repeated positive reports",zorder=3)
+    ax.plot(range(6),optimistic,color=GOLD,lw=2.7,ls="--",marker="s",ms=8.1,
+        label="Optimistic model: repeated positive reports",zorder=3)
+    ax.plot([1,2],[correct[1],negative_second],color=TEAL,lw=2.8,
+        ls=":",marker="D",ms=8.0,
+        label="Specified model: second report negative",zorder=4)
+    ax.text(2.16,negative_second+.01,"0.458 after a negative report",
+        fontsize=12,color=TEAL,weight="bold",va="bottom")
+    ax.set_xlim(-.18,5.35)
+    ax.set_ylim(.34,1.085)
+    ax.set_xticks(range(6),["Prior","1","2","3","4","5"])
+    ax.set_xlabel("Number of detector reports (positive unless noted)")
+    ax.set_ylabel("Posterior probability of a stop sign")
+    ax.grid(axis="y",alpha=.17)
+    ax.set_axisbelow(True)
+    ax.legend(loc="upper center",bbox_to_anchor=(.5,1.29),ncol=1,
+              frameon=False,fontsize=11.2,labelspacing=.3,handlelength=2.3)
+    fig.subplots_adjust(left=.115,right=.99,bottom=.185,top=.75)
+    return save(fig,"JNB3-bayesian-updating-integrated",root)
+
 def updating_sequences(root=None):
     style()
     def upd(p,pos):
@@ -158,6 +204,7 @@ def realtime_latency(root=None):
 def refresh_figure(topic,root=None):
     fn={"bayes-theorem":bayes_theorem,
         "bayesian-updating-sequences":updating_sequences,
+        "bayesian-updating-integrated":updating_integrated,
         "bayesian-updating-bias":updating_bias,
         "bayesian-inference-three-densities":inference_densities,
         "real-time-bayesian-systems":realtime_latency}[topic]
