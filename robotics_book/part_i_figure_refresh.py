@@ -295,7 +295,7 @@ def realtime_latency(root=None):
         a.axvline(4.0,color=RED,ls="--",lw=2.0,zorder=4)
         a.axvline(4.3,color="#247C59",ls=":",lw=2.1,zorder=4)
         a.axvline(5.0,color=BLUE,ls="-",lw=1.8,zorder=4)
-        a.text(4.22,.16,"Deadline 4 ms",color=RED,
+        a.text(3.79,.16,"Deadline 4 ms",color=RED,
                ha="left",va="bottom",rotation=90,fontsize=9.8,
                weight="bold")
         a.text(4.54,.16,"Total latency 4.3 ms",color="#247C59",
