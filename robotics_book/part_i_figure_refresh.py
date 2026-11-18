@@ -54,12 +54,13 @@ def bayes_theorem(root=None):
 
 
 def updating_integrated(root=None):
-    """Chapter 3: one coherent chart showing report alternatives and model bias.
+    """Single Chapter 3 visualization with a four-element legend.
 
-    All three trajectories are exact synthetic Bayes calculations. A negative
-    second report is an alternative to a second positive, not a third report.
+    The cyan-filled patch indicates an alternative second report, not
+    a confidence or credible interval. All probabilities are synthetic.
     """
     style()
+    from matplotlib.patches import Patch
     def update(p, positive, fpr=.20):
         a=.90 if positive else .10
         b=fpr if positive else 1-fpr
@@ -72,33 +73,35 @@ def updating_integrated(root=None):
     correct=history(.20)
     optimistic=history(.05)
     negative_second=update(correct[1], False, .20)
-    assert np.isclose(correct[1], .54/.62)
-    assert np.isclose(negative_second, .054/(.054+.064))
     assert np.isclose(correct[2], .486/(.486+.016))
-    fig, ax=plt.subplots(figsize=(8.4,4.65))
-    ax.axvspan(1.77,2.23,color="#B5C9DD",alpha=.76,zorder=0)
-    ax.text(2.0,1.064,"Alternative second reports",ha="center",va="top",
-            fontsize=11.0,color=INK,weight="bold",zorder=5)
-    ax.plot(range(6),correct,color=BLUE,lw=3.0,marker="o",ms=8.6,
-        label="Specified sensor model: repeated positive reports",zorder=3)
-    ax.plot(range(6),optimistic,color=GOLD,lw=2.7,ls="--",marker="s",ms=8.1,
-        label="Optimistic model: repeated positive reports",zorder=3)
-    ax.plot([1,2],[correct[1],negative_second],color=TEAL,lw=2.8,
+    assert np.isclose(negative_second, .054/(.054+.064))
+    fig, ax=plt.subplots(figsize=(9.2,4.95))
+    band_color="#B5C9DD"
+    ax.axvspan(1.77,2.23,color=band_color,alpha=.76,zorder=0)
+    h1=ax.plot(range(6),correct,color=BLUE,lw=3.0,marker="o",ms=8.6,
+        label="Specified model · positive reports",zorder=3)[0]
+    h2=ax.plot(range(6),optimistic,color=GOLD,lw=2.7,ls="--",marker="s",ms=8.1,
+        label="Optimistic model · positive reports",zorder=3)[0]
+    h3=ax.plot([1,2],[correct[1],negative_second],color=TEAL,lw=2.8,
         ls=":",marker="D",ms=8.0,
-        label="Specified model: second report negative",zorder=4)
-    ax.text(2.16,negative_second+.01,"0.458 after a negative report",
-        fontsize=12,color=TEAL,weight="bold",va="bottom")
-    ax.set_xlim(-.18,5.35)
-    ax.set_ylim(.34,1.085)
+        label="Specified model · negative second report",zorder=4)[0]
+    patch=Patch(facecolor=band_color,edgecolor="#7898B3",linewidth=.8,
+        alpha=.9,label="Alternative second reports (shaded)")
+    ax.legend(handles=[h1,h2,h3,patch],
+        loc="center left",bbox_to_anchor=(.50,.405),
+        frameon=True,facecolor="white",edgecolor="#CFD8E3",
+        framealpha=.98,fontsize=11.1,handlelength=2.4,
+        labelspacing=.55,borderpad=.7)
+    ax.set_xlim(-.18,5.4)
+    ax.set_ylim(.34,1.09)
     ax.set_xticks(range(6),["Prior","1","2","3","4","5"])
     ax.set_xlabel("Number of detector reports (positive unless noted)")
     ax.set_ylabel("Posterior probability of a stop sign")
     ax.grid(axis="y",alpha=.17)
     ax.set_axisbelow(True)
-    ax.legend(loc="upper center",bbox_to_anchor=(.5,1.29),ncol=1,
-              frameon=False,fontsize=11.2,labelspacing=.3,handlelength=2.3)
-    fig.subplots_adjust(left=.115,right=.99,bottom=.185,top=.75)
+    fig.subplots_adjust(left=.125,right=.985,bottom=.17,top=.97)
     return save(fig,"JNB3-bayesian-updating-integrated",root)
+
 
 def updating_sequences(root=None):
     style()
