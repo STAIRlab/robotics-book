@@ -284,10 +284,10 @@ def realtime_latency(root=None):
             (0,.8,"Sensing","0.8 ms","#B4D0E5",10.7),
             (.8,2.5,"Computation","2.5 ms","#F0D18C",11.4),
             (3.3,1.,"Report","1.0 ms","#CDE4C5",10.7)]:
-            rect=Rectangle((start,-.17),width,.27,facecolor=col,
+            rect=Rectangle((start,-.215),width,.315,facecolor=col,
                            edgecolor=BLUE,lw=1.35,zorder=2)
             a.add_patch(rect)
-            label=a.text((3.73 if word=="Report" else start+width*.5),-.035,
+            label=a.text((3.73 if word=="Report" else start+width*.5),-.058,
                   word+"\n"+val,fontsize=fs,weight="bold",ha="center",
                   va="center",linespacing=1.18,
                   rotation=90 if word in ("Report","Sensing") else 0,zorder=3)
@@ -298,9 +298,9 @@ def realtime_latency(root=None):
         a.text(3.79,.16,"Deadline 4 ms",color=RED,
                ha="left",va="bottom",rotation=90,fontsize=9.8,
                weight="bold")
-        a.text(4.54,.16,"Total latency 4.3 ms",color="#247C59",
+        a.text(4.49,.105,"Total latency 4.3 ms",color="#247C59",
                ha="left",va="bottom",rotation=90,fontsize=9.8,weight="bold")
-        a.text(5.22,.16,"Sampling period 5 ms",color=BLUE,
+        a.text(5.17,.105,"Sampling period 5 ms",color=BLUE,
                ha="left",va="bottom",rotation=90,fontsize=9.8,weight="bold")
         a.set_xlim(-.02,6.10);a.set_ylim(-.43,.81)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
