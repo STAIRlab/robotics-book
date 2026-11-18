@@ -48,6 +48,7 @@ def bayes_theorem(root=None):
         if j<2: ax.text(1.11,1,"→",transform=ax.transAxes,fontsize=21,weight="bold",
                         ha="center",va="center",color=GOLD)
         ax.set_xlabel(r"$P(D\mid L_i)$" if j==1 else "Probability")
+    axs[2].text(.07,-.44,"Most probable",color=BLUE,fontsize=10.5,weight="bold",ha="left",va="center")
     fig.subplots_adjust(left=.065,right=.99,top=.85,bottom=.22,wspace=.36)
     return save(fig,"JNB2-bayes-theorem",root)
 
