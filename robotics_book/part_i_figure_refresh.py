@@ -278,7 +278,7 @@ def realtime_latency(root=None):
                          "ytick.labelsize":11.2}):
         fig,(a,b)=plt.subplots(1,2,figsize=(11.6,4.5),
                                 gridspec_kw={"width_ratios":[1.04,1.28]})
-        fig.subplots_adjust(left=.07,right=.975,bottom=.20,top=.86,wspace=.33)
+        fig.subplots_adjust(left=.07,right=.975,bottom=.20,top=.86,wspace=.19)
         a.set_title("(a)  Latency budget",fontsize=15.2,weight="bold",pad=12)
         for start,width,word,val,col,fs in [
             (0,.8,"Sensing","0.8 ms","#B4D0E5",10.7),
