@@ -167,6 +167,59 @@ def inference_densities(root=None):
     ax.grid(axis="y",alpha=.16);fig.subplots_adjust(left=.13,right=.985,top=.80,bottom=.18)
     return save(fig,"JNB4-bayesian-inference-three-densities",root)
 
+
+def inference_integrated(root=None):
+    """Chapter 4 unified Gaussian inference and discrete MAP/MMSE figure."""
+    style()
+    from matplotlib.lines import Line2D
+    plt.rcParams.update({"font.family":"DejaVu Serif"})
+    fig,(ax,bx)=plt.subplots(1,2,figsize=(12.4,5.05),
+                             gridspec_kw={"width_ratios":[1.12,1]})
+    x=np.linspace(2,9,800);mu=17/3;var=1/3
+    ax.plot(x,norm.pdf(x,5,1),color=GOLD,lw=2.7,
+            label="Prior (mean 5.00 m)")
+    ax.plot(x,norm.pdf(x,6,np.sqrt(.5)),color=TEAL,lw=2.7,ls="-.",
+            label="Likelihood (center 6.00 m)")
+    ax.plot(x,norm.pdf(x,mu,np.sqrt(var)),color=BLUE,lw=3,
+            label="Posterior (mean 5.67 m)")
+    for val,c in [(5,GOLD),(6,TEAL),(mu,BLUE)]:
+        ax.axvline(val,color=c,ls=":",lw=1.6,alpha=.73,zorder=1)
+    ax.set_xlim(2.3,8.5);ax.set_ylim(0,.78)
+    ax.set_xlabel("Target position, x (m)")
+    ax.set_ylabel("Density / likelihood (1/m)")
+    ax.set_title("(a)  Gaussian inference",fontsize=15,weight="bold",pad=12)
+    ax.legend(loc="upper left",bbox_to_anchor=(.015,.985),fontsize=10.1,
+              frameon=False,handlelength=2.5,labelspacing=.5)
+    ax.grid(axis="y",alpha=.16)
+    states=np.array([0.,1.,3.]);probs=np.array([.2,.5,.3])
+    map_x=1.;mmse=float(np.dot(states,probs))
+    loss_map=float(np.dot(probs,(states-map_x)**2))
+    loss_mmse=float(np.dot(probs,(states-mmse)**2))
+    assert np.isclose(mmse,1.4) and np.isclose(loss_map,1.4)
+    assert np.isclose(loss_mmse,1.24)
+    bx.bar(states,probs,width=.39,color=[TEAL,BLUE,TEAL],alpha=.96,zorder=3)
+    for st,p in zip(states,probs):
+        bx.text(st,p+.017,f"{p:.2f}",ha="center",va="bottom",
+                fontsize=11.2,weight="bold")
+    bx.axvline(mmse,color=GOLD,lw=2.2,ls="--",zorder=2)
+    bx.set_xlim(-.45,3.52);bx.set_ylim(0,.71)
+    bx.set_xticks([0,1,3])
+    bx.set_xlabel("Discrete state, x")
+    bx.set_ylabel("Posterior probability")
+    bx.set_title("(b)  Discrete MAP versus MMSE",fontsize=15,
+                 weight="bold",pad=12)
+    bx.grid(axis="y",alpha=.16,zorder=0)
+    bx.legend(handles=[
+        Line2D([0],[0],color=BLUE,lw=8,label="MAP = 1.0 (blue bar)"),
+        Line2D([0],[0],color=GOLD,lw=2,ls="--",label="MMSE = 1.4")],
+        loc="upper right",frameon=False,fontsize=10.1,handlelength=2.1)
+    bx.text(.5,-.30,"Expected squared error",transform=bx.transAxes,
+            ha="center",fontsize=12,weight="bold")
+    bx.text(.5,-.385,"MAP: 1.40    •    MMSE: 1.24",
+            transform=bx.transAxes,ha="center",fontsize=12,color=INK)
+    fig.subplots_adjust(left=.078,right=.985,bottom=.30,top=.86,wspace=.31)
+    return save(fig,"JNB4-bayesian-inference-integrated",root)
+
 def realtime_latency(root=None):
     style();rng=np.random.default_rng(20261114);n=110
     compute=np.clip(rng.normal(1.8,.13,n),1.43,2.2)
@@ -212,5 +265,6 @@ def refresh_figure(topic,root=None):
         "bayesian-updating-integrated":updating_integrated,
         "bayesian-updating-bias":updating_bias,
         "bayesian-inference-three-densities":inference_densities,
+        "bayesian-inference-integrated":inference_integrated,
         "real-time-bayesian-systems":realtime_latency}[topic]
     return fn(root)
