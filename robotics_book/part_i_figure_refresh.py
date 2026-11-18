@@ -291,14 +291,14 @@ def realtime_latency(root=None):
                   word+"\n"+val,fontsize=fs,weight="bold",ha="center",
                   va="center",linespacing=1.18,zorder=3)
             label.set_clip_path(rect)
-        a.vlines(4,-.23,.41,color=RED,linestyles="--",lw=2,zorder=4)
-        a.vlines(5,-.23,.41,color=BLUE,linestyles=":",lw=1.8,zorder=3)
+        a.axvline(4.0,color=RED,ls="--",lw=2.0,zorder=4)
+        a.axvline(4.3,color=BLUE,ls=":",lw=2.1,zorder=4)
         a.text(4.22,.16,"Deadline 4 ms",color=RED,
                ha="left",va="bottom",rotation=90,fontsize=9.8,
                weight="bold")
-        a.text(5.23,.16,"4.3 ms",ha="left",va="bottom",
-               rotation=90,fontsize=10.2)
-        a.set_xlim(-.02,5.59);a.set_ylim(-.43,.56)
+        a.text(4.52,.15,"4.3 ms",color=BLUE,ha="center",va="bottom",
+               rotation=90,fontsize=10.6)
+        a.set_xlim(-.02,5.4);a.set_ylim(-.43,.56)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
         a.set_yticks([]);a.set_xticks(range(6));a.grid(axis="x",alpha=.1)
         a.spines["left"].set_visible(False)
