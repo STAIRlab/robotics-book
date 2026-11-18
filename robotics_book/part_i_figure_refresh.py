@@ -281,7 +281,7 @@ def realtime_latency(root=None):
         fig.subplots_adjust(left=.07,right=.975,bottom=.20,top=.86,wspace=.33)
         a.set_title("(a)  Latency budget",fontsize=15.2,weight="bold",pad=12)
         for start,width,word,val,col,fs in [
-            (0,.8,"Sensing","0.8 ms","#B4D0E5",9.0),
+            (0,.8,"Sensing","0.8 ms","#B4D0E5",10.7),
             (.8,2.5,"Computation","2.5 ms","#F0D18C",11.4),
             (3.3,1.,"Report","1.0 ms","#CDE4C5",10.7)]:
             rect=Rectangle((start,-.17),width,.27,facecolor=col,
@@ -290,7 +290,7 @@ def realtime_latency(root=None):
             label=a.text((3.73 if word=="Report" else start+width*.5),-.035,
                   word+"\n"+val,fontsize=fs,weight="bold",ha="center",
                   va="center",linespacing=1.18,
-                  rotation=90 if word=="Report" else 0,zorder=3)
+                  rotation=90 if word in ("Report","Sensing") else 0,zorder=3)
             label.set_clip_path(rect)
         a.axvline(4.0,color=RED,ls="--",lw=2.0,zorder=4)
         a.axvline(4.3,color=BLUE,ls=":",lw=2.1,zorder=4)
@@ -298,7 +298,7 @@ def realtime_latency(root=None):
                ha="left",va="bottom",rotation=90,fontsize=9.8,
                weight="bold")
         a.text(4.52,.15,"4.3 ms",color=BLUE,ha="center",va="bottom",
-               rotation=90,fontsize=10.6)
+               rotation=90,fontsize=9.8,weight="bold")
         a.set_xlim(-.02,5.4);a.set_ylim(-.43,.56)
         a.set_xlabel("Time since acquisition (ms)",labelpad=8)
         a.set_yticks([]);a.set_xticks(range(6));a.grid(axis="x",alpha=.1)
