@@ -76,7 +76,9 @@ def updating_integrated(root=None):
     assert np.isclose(negative_second, .054/(.054+.064))
     assert np.isclose(correct[2], .486/(.486+.016))
     fig, ax=plt.subplots(figsize=(8.4,4.65))
-    ax.axvspan(1.78,2.22,color="#DCE7F0",alpha=.56,zorder=0)
+    ax.axvspan(1.77,2.23,color="#B5C9DD",alpha=.76,zorder=0)
+    ax.text(2.0,1.064,"Alternative second reports",ha="center",va="top",
+            fontsize=11.0,color=INK,weight="bold",zorder=5)
     ax.plot(range(6),correct,color=BLUE,lw=3.0,marker="o",ms=8.6,
         label="Specified sensor model: repeated positive reports",zorder=3)
     ax.plot(range(6),optimistic,color=GOLD,lw=2.7,ls="--",marker="s",ms=8.1,
