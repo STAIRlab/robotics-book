@@ -220,6 +220,46 @@ def inference_integrated(root=None):
     fig.subplots_adjust(left=.078,right=.985,bottom=.30,top=.86,wspace=.31)
     return save(fig,"JNB4-bayesian-inference-integrated",root)
 
+
+def inference_exercise_risk(root=None):
+    """Appendix E: expected squared-error risk for Exercise 4.2."""
+    style()
+    fig,ax=plt.subplots(figsize=(9.6,5.15))
+    vals=np.linspace(-.24,3.28,450)
+    risk=1.24+(vals-1.4)**2
+    ax.plot(vals,risk,color=BLUE,lw=3.1,zorder=2,
+            label=r"Posterior risk $R(a)=1.24+(a-1.4)^2$")
+    xs=np.array([0.,1.,3.])
+    rs=1.24+(xs-1.4)**2
+    assert np.allclose(rs,[3.2,1.4,3.8])
+    ax.scatter(xs,rs,c=TEAL,s=95,marker="s",
+               edgecolor="white",lw=1.2,zorder=5,
+               label="Admissible discrete estimates")
+    ax.scatter([1],[1.4],c=BLUE,s=140,edgecolor="white",
+               lw=1.3,zorder=6,label="MAP / constrained MMSE: 1.0")
+    ax.scatter([1.4],[1.24],c=GOLD,s=140,marker="D",
+               edgecolor="white",lw=1.3,zorder=6,
+               label="Unrestricted MMSE: 1.4")
+    ax.vlines([1,1.4],0,[1.4,1.24],colors=[BLUE,GOLD],
+              linestyles=[":","--"],lw=1.6,alpha=.75)
+    ax.text(.17,3.36,"R(0) = 3.20",fontsize=11.5,color=INK)
+    ax.text(2.87,3.99,"R(3) = 3.80",fontsize=11.5,color=INK,ha="right")
+    ax.text(.82,.55,"MAP / constrained MMSE\n(1.0, 1.40)",
+            color=BLUE,fontsize=11.2,weight="bold",ha="right")
+    ax.text(1.77,.56,"Unrestricted MMSE\n(1.4, 1.24)",
+            color=GOLD,fontsize=11.2,weight="bold",ha="left")
+    ax.set_xlim(-.27,3.32);ax.set_ylim(0,5.05)
+    ax.set_xticks([0,1,1.4,2,3])
+    ax.set_xlabel(r"Numerical estimate, $a$")
+    ax.set_ylabel(r"Posterior expected squared error, $R(a)$")
+    ax.grid(axis="y",alpha=.16)
+    ax.set_axisbelow(True)
+    ax.legend(loc="upper center",bbox_to_anchor=(.51,.995),
+              frameon=False,fontsize=11,handlelength=2.2,
+              labelspacing=.45)
+    fig.subplots_adjust(left=.12,right=.97,bottom=.16,top=.96)
+    return save(fig,"JNB4-exercise4-2-posterior-risk",root)
+
 def realtime_latency(root=None):
     style();rng=np.random.default_rng(20261114);n=110
     compute=np.clip(rng.normal(1.8,.13,n),1.43,2.2)
@@ -266,5 +306,6 @@ def refresh_figure(topic,root=None):
         "bayesian-updating-bias":updating_bias,
         "bayesian-inference-three-densities":inference_densities,
         "bayesian-inference-integrated":inference_integrated,
+        "bayesian-inference-exercise-risk":inference_exercise_risk,
         "real-time-bayesian-systems":realtime_latency}[topic]
     return fn(root)
