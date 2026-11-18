@@ -261,7 +261,10 @@ def inference_exercise_risk(root=None):
     return save(fig,"JNB4-exercise4-2-posterior-risk",root)
 
 def realtime_latency(root=None):
-    style();rng=np.random.default_rng(20261114);n=110
+    """JNB6 latency figure: legible inset labels, uncluttered annotation and legend."""
+    style()
+    from matplotlib.lines import Line2D
+    rng=np.random.default_rng(20261114);n=110
     compute=np.clip(rng.normal(1.8,.13,n),1.43,2.2)
     compute[43:49]=[7.2,6.8,7.5,6.5,6.3,5.8]
     acquired=np.arange(n)*5.;ready=acquired+.8;complete=np.zeros(n)
@@ -270,34 +273,60 @@ def realtime_latency(root=None):
     latency=complete-acquired;missed=latency>4;updates=np.arange(1,n+1)
     assert np.array_equal(updates[missed],np.arange(44,58))
     assert np.isclose(latency.max(),21.9)
-    fig,(a,b)=plt.subplots(1,2,figsize=(10.5,4.0),
-                             gridspec_kw={"width_ratios":[1,1.35]})
-    a.set_title("(a)  Latency budget",weight="bold",fontsize=15,pad=12)
-    for start,width,lab,col in [(0,.8,"Sensing\n0.8 ms","#BBD9ED"),
-             (.8,2.5,"Computation\n2.5 ms","#F2CC7F"),(3.3,1.,"Reporting\n1.0 ms","#D2EDCC")]:
-        a.add_patch(Rectangle((start,-.17),width,.34,facecolor=col,edgecolor=BLUE,lw=1.3))
-        a.text(start+width/2,0,lab,ha="center",va="center",fontsize=9.6,weight="bold")
-    a.axvline(4,color=RED,ls="--",lw=2);a.axvline(5,color=BLUE,ls=":",lw=1.5)
-    a.text(3.95,.44,"Deadline 4 ms",color=RED,ha="right",fontsize=11.8,weight="bold")
-    a.text(4.30,.3,"4.3 ms",color=INK,ha="center",fontsize=11)
-    a.set_xlim(0,5.2);a.set_ylim(-.44,.55)
-    a.set_xlabel("Time since acquisition (ms)");a.set_yticks([])
-    a.grid(axis="x",alpha=.12);a.spines["left"].set_visible(False)
-    b.set_title("(b)  Delays and deadline misses",weight="bold",fontsize=15,pad=12)
-    b.axvspan(43.5,49.5,color=GOLD,alpha=.17)
-    b.axhline(4,color=RED,ls="--",lw=2,label="4 ms deadline")
-    b.plot(updates,latency,color=BLUE,lw=2.3,label="End-to-end latency")
-    b.scatter(updates[missed],latency[missed],s=35,color=RED,zorder=4,label="Deadline misses")
-    b.annotate("Slow updates 44–49",xy=(46.5,22),xytext=(55,26),
-        fontsize=11.2,color=GOLD,weight="bold",
-        arrowprops={"arrowstyle":"->","color":GOLD})
-    b.set_xlim(1,110);b.set_ylim(0,27)
-    b.set_xlabel("Update number");b.set_ylabel("Latency (ms)")
-    b.legend(loc="upper right",frameon=False,fontsize=10)
-    b.grid(axis="y",alpha=.16)
-    fig.subplots_adjust(left=.085,right=.985,bottom=.21,top=.83,wspace=.34)
-    p=save(fig,"JNB6-realtime-latency-final",root)
-    return p,{"miss_count":int(missed.sum()),"max_latency_ms":float(latency.max())}
+    with plt.rc_context({"font.family":"DejaVu Serif","font.size":11.5,
+                         "axes.labelsize":13,"xtick.labelsize":11.2,
+                         "ytick.labelsize":11.2}):
+        fig,(a,b)=plt.subplots(1,2,figsize=(11.6,4.5),
+                                gridspec_kw={"width_ratios":[1.04,1.28]})
+        fig.subplots_adjust(left=.07,right=.975,bottom=.20,top=.86,wspace=.33)
+        a.set_title("(a)  Latency budget",fontsize=15.2,weight="bold",pad=12)
+        for start,width,word,val,col,fs in [
+            (0,.8,"Sensing","0.8 ms","#B4D0E5",9.0),
+            (.8,2.5,"Computation","2.5 ms","#F0D18C",11.4),
+            (3.3,1.,"Report","1.0 ms","#CDE4C5",9.7)]:
+            rect=Rectangle((start,-.17),width,.34,facecolor=col,
+                           edgecolor=BLUE,lw=1.35,zorder=2)
+            a.add_patch(rect)
+            label=a.text(start+width*(.31 if word=="Report" else .5),0,
+                  word+"\n"+val,fontsize=fs,weight="bold",ha="center",
+                  va="center",linespacing=1.24,zorder=3)
+            label.set_clip_path(rect)
+        a.axvline(4,color=RED,ls="--",lw=2,zorder=4)
+        a.axvline(5,color=BLUE,ls=":",lw=1.8,zorder=3)
+        a.text(3.72,.435,"Deadline 4 ms",color=RED,ha="right",
+               fontsize=11.8,weight="bold")
+        a.text(4.46,.31,"4.3 ms",ha="center",fontsize=12.4)
+        a.set_xlim(-.02,5.2);a.set_ylim(-.43,.56)
+        a.set_xlabel("Time since acquisition (ms)",labelpad=8)
+        a.set_yticks([]);a.set_xticks(range(6));a.grid(axis="x",alpha=.1)
+        a.spines["left"].set_visible(False)
+        b.set_title("(b)  Delays and deadline misses",fontsize=15.2,
+                    weight="bold",pad=12)
+        b.axvspan(43.5,49.5,color=GOLD,alpha=.18,zorder=0)
+        l1=b.axhline(4,color=RED,ls="--",lw=2,label="4 ms deadline",zorder=2)
+        l2,=b.plot(updates,latency,color=BLUE,lw=2.3,
+                   label="End-to-end latency",zorder=3)
+        sc=b.scatter(updates[missed],latency[missed],s=37,color=RED,
+                     zorder=4,label="Deadline misses")
+        b.annotate("Slow updates 44–49",xy=(48.2,23.35),
+             xytext=(62.,25.45),fontsize=11.9,color=GOLD,weight="bold",
+             ha="left",va="center",
+             arrowprops={"arrowstyle":"->","color":GOLD,"lw":1.5,
+                         "shrinkA":5,"shrinkB":0,
+                         "connectionstyle":"arc3,rad=0"})
+        b.set_xlim(1,110);b.set_ylim(0,27.5)
+        b.set_xlabel("Update number",labelpad=8)
+        b.set_ylabel("Latency (ms)",labelpad=8)
+        b.grid(axis="y",alpha=.16)
+        lg=b.legend(handles=[l1,l2,sc],loc="center",
+          bbox_to_anchor=(.74,.58),frameon=True,facecolor="white",
+          edgecolor="#CBD6E0",framealpha=1,fontsize=10.5,
+          handlelength=2.4,borderpad=.8,labelspacing=.75)
+        lg.get_frame().set_linewidth(1)
+        p=save(fig,"JNB6-realtime-latency-final",root)
+    return p,{"miss_count":int(missed.sum()),
+              "max_latency_ms":float(latency.max())}
+
 
 def refresh_figure(topic,root=None):
     fn={"bayes-theorem":bayes_theorem,
