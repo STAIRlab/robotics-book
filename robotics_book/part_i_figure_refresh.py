@@ -37,13 +37,13 @@ def bayes_theorem(root=None):
     for j,(ax,vals,title) in enumerate(zip(axs,[prior,like,post],
                          ["PRIOR","MEASUREMENT LIKELIHOOD","POSTERIOR"])):
         yy=np.arange(3)
-        ax.barh(yy,vals,height=.52,color=([GRAY]*3 if j==0 else [TEAL]*3 if j==1 else [BLUE,GOLD,GOLD]))
+        ax.barh(yy,vals,height=.52,color=([GRAY]*3 if j==0 else [TEAL]*3 if j==1 else [BLUE]*3))
         for k,v in enumerate(vals):
             ax.text(v+.026,k,f"{v:.3f}",va="center",fontsize=12.5,weight="bold")
         ax.set_xlim(0,1.04);ax.set_ylim(2.6,-.6)
         ax.set_title(title,fontsize=12.7,weight="bold",pad=15)
         ax.set_yticks(yy,[r"$L_1$",r"$L_2$",r"$L_3$"] if j==0 else [""]*3)
-        ax.tick_params(axis="y",length=0,pad=10)
+        ax.tick_params(axis="y",length=0,pad=10,labelsize=17 if j==0 else 12)
         ax.set_xticks([0,.5,1]);ax.grid(axis="x",alpha=.13);ax.set_axisbelow(True)
         if j<2: ax.text(1.11,1,"→",transform=ax.transAxes,fontsize=21,weight="bold",
                         ha="center",va="center",color=GOLD)
