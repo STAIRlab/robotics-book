@@ -1,0 +1,39 @@
+name: Render Chapter 8 notebook and figure
+on:
+  push:
+    branches: [book-figure-revision]
+    paths:
+      - '.github/workflows/render-chapter8.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: book-figure-revision
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install notebook dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          python -m pip install jupyter nbconvert ipykernel
+      - name: Execute notebook and save figures
+        run: |
+          cd notebooks
+          python -m jupyter nbconvert --to notebook --execute kalman-filter.ipynb --output kalman-filter.executed.ipynb --ExecutePreprocessor.timeout=300
+          mv kalman-filter.executed.ipynb kalman-filter.ipynb
+          test -s ../figures/JNB8-KF.pdf
+          test -s ../figures/JNB8-KF.png
+      - name: Commit executed notebook and figures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add notebooks/kalman-filter.ipynb figures/JNB8-KF.pdf figures/JNB8-KF.png
+          git diff --cached --quiet || git commit -m "Render final Chapter 8 figure and notebook outputs [skip ci]"
+          git push
