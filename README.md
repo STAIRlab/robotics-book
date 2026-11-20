@@ -85,7 +85,7 @@ These 19 notebooks restore the generating code for numerical illustrations alrea
 | [bayesian-inference.ipynb](notebooks/bayesian-inference.ipynb) | Scalar Gaussian update |
 | [bayesian-prediction.ipynb](notebooks/bayesian-prediction.ipynb) | Velocity and acceleration contributions to variance |
 | [real-time-bayesian-systems.ipynb](notebooks/real-time-bayesian-systems.ipynb) | Cumulative latency and deadline |
-| [kalman-filter.ipynb](notebooks/kalman-filter.ipynb) | Sequential scalar-update variances |
+| [kalman-filter.ipynb](notebooks/kalman-filter.ipynb) | Chapter 8 integrated KF: original scalar updates, Gaussian conditioning, 2D GPS-outage tracking, Fig. 8.2; branch's original shared-example check retained |
 | [extended-kalman-filter.ipynb](notebooks/extended-kalman-filter.ipynb) | Normalized variances after one range update |
 | [unscented-kalman-filter.ipynb](notebooks/unscented-kalman-filter.ipynb) | Squaring and its linearization at zero |
 | [bayesian-decision-theory.ipynb](notebooks/bayesian-decision-theory.ipynb) | Renewal-reward inspection interval |
