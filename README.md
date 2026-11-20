@@ -44,6 +44,10 @@ cd notebooks
 jupyter lab
 ```
 
+## Reviewed chapter notebooks
+
+The [completed Chapter 2–8 notebook index](completed-notebooks/README.md) collects the current reviewed chapter notebooks in one place on this working branch. Notebook files remain at their canonical paths under `notebooks/`; final run-all and figure-export validation are tracked separately before release.
+
 ## Original six notebooks
 
 The numerical calculations in these notebooks are preserved. Four have updated plotting cells and figure exports. The two print-only notebooks, `bayesian-inference-basics.ipynb` and `monte-carlo-methods.ipynb`, are unchanged.
